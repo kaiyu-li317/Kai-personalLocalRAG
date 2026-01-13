@@ -1,0 +1,3 @@
+# M3E 嵌入模型目录
+# 首次启动时会自动从 HuggingFace 下载模型
+# 也可以手动下载 m3e-small 或 m3e-base 模型到此目录

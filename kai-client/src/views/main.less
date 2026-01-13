@@ -1,0 +1,123 @@
+.kb-main {
+  height: 100%;
+  background: #09090b;
+
+  &-sider.n-layout-sider {
+    position: relative;
+    padding: 12px;
+    z-index: 3;
+
+    .n-layout-toggle-bar {
+      right: -16px;
+      display: none;
+    }
+
+    &:hover {
+      .n-layout-toggle-bar {
+        display: block;
+      }
+    }
+
+    &>.n-layout-sider-scroll-container {
+      min-width: auto !important;
+      padding: 0 !important;
+      border-radius: 16px;
+      background: #18181b;
+      border: 1px solid #27272a;
+    }
+
+    .kb-logo {
+      height: 72px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      &-svg {
+        transform: scale(0.18);
+        margin-left: -95px;
+        margin-top: -95px;
+      }
+    }
+  }
+
+  &-menu.n-menu {
+    padding: 8px;
+
+    .n-menu-item:first-child {
+      margin-top: 0;
+    }
+
+    .n-menu-item {
+      height: 56px;
+      margin-top: 4px;
+
+      .n-menu-item-content {
+        display: flex;
+        flex-direction: column;
+        padding: 8px !important;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+
+        &::before {
+          border-radius: 12px;
+          display: none;
+        }
+
+        &:hover:not(.n-menu-item-content--selected) {
+          background: #27272a;
+
+          .n-menu-item-content__icon {
+            color: #fafafa;
+          }
+        }
+
+        .n-menu-item-content__icon {
+          margin-right: 0 !important;
+          color: #71717a;
+          transition: color 0.2s ease;
+
+          i {
+            font-size: 20px;
+          }
+        }
+      }
+
+      .n-menu-item-content--selected {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(99, 102, 241, 0.1) 100%);
+
+        .n-menu-item-content__icon {
+          color: #6366f1;
+        }
+      }
+    }
+  }
+
+  &-menu.n-menu--collapsed {
+    .n-menu-item:first-child {
+      margin-top: 0;
+    }
+
+    .n-menu-item {
+      margin-top: 4px;
+
+      .n-menu-item-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .n-menu-item-content-header {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &-sider.n-layout-sider--collapsed {
+    padding-left: 0;
+
+    .n-layout-toggle-bar {
+      display: block;
+    }
+  }
+}
