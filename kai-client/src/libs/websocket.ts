@@ -42,28 +42,28 @@ class EventDispatcher extends Log {
 }
 
 export default class WebSocketClient extends EventDispatcher {
-  // #socket链接
+  // #WebSocket connection URL
   private url = '';
-  // #socket实例
+  // #WebSocket instance
   private socket: WebSocket | null = null;
-  // #重连次数
+  // #Reconnection attempts
   private reconnectAttempts = 0;
-  // #最大重连数
+  // #Maximum reconnection attempts
   private maxReconnectAttempts = 5;
-  // #重连间隔
+  // #Reconnection interval
   private reconnectInterval = 10000; // 10 seconds
-  // #发送心跳数据间隔
+  // #Heartbeat data sending interval
   private heartbeatInterval = 1000 * 30;
-  // #计时器id
+  // #Timer id
   private heartbeatTimer: any = undefined;
-  // #彻底终止ws
+  // #Completely terminate WebSocket
   private stopWs = false;
-  // *构造函数
+  // *Constructor
   constructor(url: string) {
     super();
     this.url = url;
   }
-  // >生命周期钩子
+  // >Lifecycle hooks
   onopen(callBack: Function) {
     this.addEventListener('open', callBack);
   }
@@ -76,33 +76,33 @@ export default class WebSocketClient extends EventDispatcher {
   onerror(callBack: Function) {
     this.addEventListener('error', callBack);
   }
-  // >消息发送
+  // >Send message
   public send(message: string): void {
     if (this.socket && this.socket.readyState === WebSocket.OPEN) {
       this.socket.send(message);
     } else {
-      console.error('[WebSocket] 未连接');
+      console.error('[WebSocket] Not connected');
     }
   }
 
-  // !初始化连接
+  // !Initialize connection
   public connect(): void {
     if (this.reconnectAttempts === 0) {
-      this.log('WebSocket', `初始化连接中...      ${this.url}`);
+      this.log('WebSocket', `Initializing connection...      ${this.url}`);
     }
     if (this.socket && this.socket.readyState === WebSocket.OPEN) {
       return;
     }
     this.socket = new WebSocket(this.url);
 
-    // !websocket连接成功
+    // !WebSocket connection successful
     this.socket.onopen = event => {
       this.stopWs = false;
-      // 重置重连尝试成功连接
+      // Reset reconnection attempts on successful connection
       this.reconnectAttempts = 0;
-      // 在连接成功时停止当前的心跳检测并重新启动
+      // Stop current heartbeat detection and restart on successful connection
       this.startHeartbeat();
-      this.log('WebSocket', `连接成功,等待服务端数据推送[onopen]...   ${this.url}`);
+      this.log('WebSocket', `Connection successful, waiting for server data push [onopen]...   ${this.url}`);
       this.dispatchEvent('open', event);
     };
 
@@ -113,7 +113,7 @@ export default class WebSocketClient extends EventDispatcher {
 
     this.socket.onclose = event => {
       if (this.reconnectAttempts === 0) {
-        this.log('WebSocket', `连接断开[onclose]...  ${this.url}`);
+        this.log('WebSocket', `Connection closed [onclose]...  ${this.url}`);
       }
       if (!this.stopWs) {
         this.handleReconnect();
@@ -123,28 +123,28 @@ export default class WebSocketClient extends EventDispatcher {
 
     this.socket.onerror = event => {
       if (this.reconnectAttempts === 0) {
-        this.log('WebSocket', `连接异常[onerror]...  ${this.url}`);
+        this.log('WebSocket', `Connection error [onerror]...  ${this.url}`);
       }
       this.closeHeartbeat();
       this.dispatchEvent('error', event);
     };
   }
 
-  // > 断网重连逻辑
+  // > Reconnection logic for network disconnection
   private handleReconnect(): void {
     if (this.reconnectAttempts < this.maxReconnectAttempts) {
       this.reconnectAttempts++;
-      this.log('WebSocket', `尝试重连... (${this.reconnectAttempts}/${this.maxReconnectAttempts})     ${this.url}`);
+      this.log('WebSocket', `Attempting to reconnect... (${this.reconnectAttempts}/${this.maxReconnectAttempts})     ${this.url}`);
       setTimeout(() => {
         this.connect();
       }, this.reconnectInterval);
     } else {
       this.closeHeartbeat();
-      this.log('WebSocket', `最大重连失败，终止重连: ${this.url}`);
+      this.log('WebSocket', `Max reconnection attempts reached, terminating reconnection: ${this.url}`);
     }
   }
 
-  // >关闭连接
+  // >Close connection
   public close(): void {
     if (this.socket) {
       this.stopWs = true;
@@ -158,7 +158,7 @@ export default class WebSocketClient extends EventDispatcher {
     this.closeHeartbeat();
   }
 
-  // >开始心跳检测 -> 定时发送心跳消息
+  // >Start heartbeat detection -> Periodically send heartbeat messages
   private startHeartbeat(): void {
     if (this.stopWs) return;
     if (this.heartbeatTimer) {
@@ -167,14 +167,14 @@ export default class WebSocketClient extends EventDispatcher {
     this.heartbeatTimer = setInterval(() => {
       if (this.socket) {
         this.socket.send(JSON.stringify({ type: 'ping', data: {} }));
-        this.log('WebSocket', '送心跳数据...');
+        this.log('WebSocket', 'Sending heartbeat data...');
       } else {
-        console.error('[WebSocket] 未连接');
+        console.error('[WebSocket] Not connected');
       }
     }, this.heartbeatInterval);
   }
 
-  // >关闭心跳
+  // >Close heartbeat
   private closeHeartbeat(): void {
     clearInterval(this.heartbeatTimer);
     this.heartbeatTimer = undefined;

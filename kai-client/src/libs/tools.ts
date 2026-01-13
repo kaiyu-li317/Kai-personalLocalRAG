@@ -1,16 +1,16 @@
 import { v4 as uuidv4 } from 'uuid'
 /**
- * 生成随机字符串
- * @param {Boolean} randomFlag 是否任意长度
- * @param {Number} min 任意长度最小位[固定位数]
- * @param {Number} max 任意长度最大位
+ * Generate random string
+ * @param {Boolean} randomFlag Whether to use arbitrary length
+ * @param {Number} min Minimum length [fixed length]
+ * @param {Number} max Maximum length
  */
 export const random = (randomFlag:boolean, min:number, max:number) => {
   let str = ''
   let range = min
   // let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
   let arr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-  // 随机产生
+  // Random generation
   if (randomFlag) {
     range = Math.round(Math.random() * (max - min)) + min
   }
@@ -20,7 +20,7 @@ export const random = (randomFlag:boolean, min:number, max:number) => {
   return str
 }
 /**
- * 获取指定大小范围的整数
+ * Get integer within specified range
  * @param {*} minNum
  * @param {*} maxNum
  */
@@ -37,14 +37,14 @@ export const randomNum = function (minNum:number, maxNum:number) {
   return num
 }
 /**
- * 某字符串是否为空或长度为0或由空白符构成
+ * Check if string is blank or consists only of whitespace
  * @param {*} str
  */
 export const isBlank = (str:string) => {
   return (str + '').replace(/(^\s*)|(\s*$)/g, '') === ''
 }
 /**
- * 判断某字符串是否为空，为空的标准是 null或undefined或length==0
+ * Check if string is empty (null, undefined, or length==0)
  * @param {*} str
  */
 export const isEmpty = (str:string) => {
@@ -54,7 +54,7 @@ export const isEmpty = (str:string) => {
 }
 
 /**
- * 深拷贝对象
+ * Deep copy object
  * @param {*} object
  */
 export const deepCopy = (object:any) => {
@@ -62,7 +62,7 @@ export const deepCopy = (object:any) => {
   for (let key in object) {
     if (object.hasOwnProperty(key)) {
       if (typeof object[key] === 'object' && object[key] !== null) {
-        result[key] = deepCopy(object[key]) // 递归复制
+        result[key] = deepCopy(object[key]) // Recursive copy
       } else {
         result[key] = object[key]
       }
@@ -72,9 +72,9 @@ export const deepCopy = (object:any) => {
 }
 
 /**
- * 数组按属性排序
+ * Sort array by property
  * array.sort(compare('key'))
- * type: -1 倒序， 1 正序
+ * type: -1 descending, 1 ascending
  */
 export const compare = (property:any, type:number) => {
   if (type === undefined) type = 1
@@ -93,10 +93,10 @@ export const compare = (property:any, type:number) => {
 }
 
 /**
- * 将 source 的属性拷贝到 target 中
+ * Copy properties from source to target
  * @param {*} target
  * @param {*} source
- * @param {*} converter 有时候 value 可能需要转换一下值
+ * @param {*} converter Sometimes value may need conversion
  */
 export const copyProp = (target:any, source:any, converter:Function) => {
   if (!target || !source) return
@@ -109,11 +109,11 @@ export const copyProp = (target:any, source:any, converter:Function) => {
   }
 }
 /**
- * 将 source 的属性拷贝到 target 中
- * 只拷贝 target 中存在的属性
+ * Copy properties from source to target
+ * Only copy properties that exist in target
  * @param {*} target
  * @param {*} source
- * @param {*} converter 有时候 value 可能需要转换一下值
+ * @param {*} converter Sometimes value may need conversion
  */
 export const copySelfProp = (target:any, source:any, converter:Function) => {
   if (!target || !source) return
@@ -126,7 +126,7 @@ export const copySelfProp = (target:any, source:any, converter:Function) => {
   }
 }
 /**
- * 是否数组
+ * Check if value is a number
  * @param value
  * @returns 
  */
@@ -134,7 +134,7 @@ export const isNumber = (value:any) => {
   return !isNaN(value)
 }
 /**
- * 是否包含中文
+ * Check if string contains Chinese characters
  * @param value
  * @returns 
  */
@@ -142,7 +142,7 @@ export const isContainChinese = (value:string) => {
   return /[\u4E00-\u9FA5]/g.test(value)
 }
 /**
- * 首字母转小写
+ * Convert first letter to lowercase
  * @param value
  * @returns 
  */
@@ -150,7 +150,7 @@ export const lowerCaseFirst = (value:string) => {
   return value.charAt(0).toLowerCase() + value.slice(1)
 }
 /**
- * 首字母转大写
+ * Convert first letter to uppercase
  * @param value
  * @returns 
  */
@@ -158,22 +158,22 @@ export const upperCaseFirst = (value:string) => {
   return value.charAt(0).toUpperCase() + value.slice(1)
 }
 /**
- * 获取文件内容
+ * Load file content
  * @param name
  * @returns
  */
 export const loadFile = (name:string) => {
-  // name为文件所在位置
+  // name is the file location
   let xhr = new XMLHttpRequest()
   const okStatus = document.location.protocol === 'file:' ? 0 : 200
   xhr.open('GET', name, false)
-  xhr.overrideMimeType('text/html;charset=utf-8') // 默认为utf-8
+  xhr.overrideMimeType('text/html;charset=utf-8') // Default is utf-8
   xhr.send(null)
   return xhr.status === okStatus ? xhr.responseText : null
 }
 
 /**
- * 存储数据到 localStorage
+ * Save data to localStorage
  * @param key
  * @param value
  */
@@ -186,7 +186,7 @@ export const localSave = (key:string, value:any) => {
 }
 
 /**
- * 从 localStorage 获取数据
+ * Get data from localStorage
  * @param {*} key
  */
 export const localRead = (key:string) => {
@@ -204,7 +204,7 @@ export const localRead = (key:string) => {
   }
 }
 /**
- * 从 localStorage 删除数据
+ * Remove data from localStorage
  * @param key
  */
 export const localRemove = (key:string) => {
@@ -214,7 +214,7 @@ export const localRemove = (key:string) => {
 export const RGBA_COLOR_REGEX = /^rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*(,\s*[\d\.]+\s*)?\)$/
 export const HEX_COLOR_REGEX = /^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$/
 /**
- * 是否16进制颜色
+ * Check if the color is a hex color
  * @param color
  * @returns 
  */
@@ -223,7 +223,7 @@ export const isHexColor = (color:string) => {
 }
 
 /**
- * 是否rgba颜色
+ * Check if the color is an RGBA color
  * @param color
  * @returns
  */
@@ -232,61 +232,61 @@ export const isRgbaColor = (color:string) => {
 }
 
 export const rgbaToHex = (rgba: string): string => {
-  // 移除可能存在的前缀 'rgba(' 和后缀 ')'
+  // Remove possible prefix 'rgba(' and suffix ')'
   const rgbaTrimmed = rgba.replace(/rgba?[\s+]?\(/i, '').replace(/\)[\s+]?/i, '')
-  // 将rgbaTrimmed拆分为数组，包含红、绿、蓝和alpha值
+  // Split rgbaTrimmed into array containing red, green, blue and alpha values
   const values = rgbaTrimmed.split(/[\s,]+/)
   const r = parseInt(values[0], 10)
   const g = parseInt(values[1], 10)
   const b = parseInt(values[2], 10)
   const a = parseFloat(values[3])
-  // 将RGB值转换为十六进制形式
+  // Convert RGB values to hexadecimal format
   const toHex = (value: number) => {
       let hex = Math.round(value).toString(16)
       return hex.length === 1 ? '0' + hex : hex
   };
   const hexColor = `#${toHex(r)}${toHex(g)}${toHex(b)}`
-  // 如果需要，也可以返回包含alpha的HEX颜色，例如 #AARRGGBB
+  // If needed, can also return HEX color with alpha, e.g. #AARRGGBB
   // const alphaHex = Math.round(a * 255).toString(16);
   // return `#${alphaHex}${hexColor.slice(1)}`;
   return hexColor
 }
 
 export const hexToRgba = (color:string, alpha:number = 1) => {
-  // 去掉可能存在的'#'字符
+  // Remove possible '#' character
   color = color.replace('#', '')
-  // 确保hex颜色是6位的，如果不是则复制每一对数字以填充6位
+  // Ensure hex color is 6 digits, if not, duplicate each digit pair to fill 6 digits
   if (color.length === 3) {
     color = color.split('').map(c => c + c).join('')
   }
-  // 将16进制颜色转换为RGB数组
+  // Convert hex color to RGB array
   const rgb = [
     parseInt(color.substring(0, 2), 16),
     parseInt(color.substring(2, 4), 16),
     parseInt(color.substring(4, 6), 16)
   ]
-  // 构建并返回RGBA颜色字符串
+  // Build and return RGBA color string
   return `rgba(${rgb.join()}, ${alpha})`
 }
 
 /**
- * 修改rgba的透明度
+ * Modify the alpha value of an RGBA color
  * @param color
  * @param alpha
  * @returns
  */
 export const modifyColorAlpha = (color:string, alpha:number) => {
-  // 匹配输入的RGBA颜色字符串
+  // Match the input RGBA color string
   if (isRgbaColor(color)) {
     const match = color.match(RGBA_COLOR_REGEX);
-    // 如果匹配成功
+    // If match is successful
     if (match) {
-      // 解析出RGBA的各部分
+      // Parse the RGBA parts
       const r = parseInt(match[1], 10);
       const g = parseInt(match[2], 10);
       const b = parseInt(match[3], 10);
-      const a = match[4] ? parseFloat(match[4]) : 1; // 如果没有指定Alpha，默认为1
-      // 使用新的Alpha值构建新的RGBA字符串
+      const a = match[4] ? parseFloat(match[4]) : 1; // Default to 1 if alpha is not specified
+      // Build new RGBA string with the new alpha value
       return `rgba(${r}, ${g}, ${b}, ${alpha})`;
     }
   } else if (isHexColor(color)) {
@@ -297,7 +297,7 @@ export const modifyColorAlpha = (color:string, alpha:number) => {
 }
 
 /**
- * 生成相近的颜色
+ * Generate similar colors
  * @param color
  * @param count
  * @returns
@@ -307,14 +307,14 @@ export const similarColors = (color:string, count:number, adjustment:number = 10
   let baseColor = isHex ? hexToRgba(color) : color
   const match = baseColor.match(RGBA_COLOR_REGEX)
   let colors:string[] = []
-    // 如果匹配成功
+    // If match is successful
   if (!match) {
     for (let i = 0; i < count; i++) {
       colors.push(color)
     }
     return colors
   }
-  // 解析出RGBA的各部分
+  // Parse the RGBA parts
   const r = parseInt(match[1], 10)
   const g = parseInt(match[2], 10)
   const b = parseInt(match[3], 10)
@@ -336,7 +336,7 @@ export const similarColors = (color:string, count:number, adjustment:number = 10
 }
 
 /**
- * 获取uuid
+ * Get uuid
  * @returns uuid
  */
 export const uuid = () => {
@@ -351,15 +351,15 @@ export const bytesToSize = (bytes:number, separator:string = '') => {
 }
 
 export const copyToClipboard = (text:string) => {
-  // navigator clipboard 需要https等安全上下文
+  // navigator clipboard requires https or other secure context
   if (navigator.clipboard && window.isSecureContext) {
-    // navigator clipboard 向剪贴板写文本
+    // navigator clipboard writes text to clipboard
     return navigator.clipboard.writeText(text)
   } else {
-    // 创建text area
+    // Create text area
     let textArea = document.createElement('textarea')
     textArea.value = text
-    // 使text area不在viewport，同时设置不可见
+    // Make text area not in viewport and invisible
     textArea.style.position = 'absolute'
     textArea.style.opacity = '0'
     textArea.style.left = '-999999px'
@@ -368,7 +368,7 @@ export const copyToClipboard = (text:string) => {
     textArea.focus()
     textArea.select()
     return new Promise<void>((res, rej) => {
-      // 执行复制命令并移除文本框
+      // Execute copy command and remove text area
       document.execCommand('copy') ? res() : rej()
       textArea.remove()
     })

@@ -2,13 +2,13 @@ import axios from 'axios'
 import useUserStore from '@/store/user'
 import { baseURL } from '@/config'
 
-// 设置baseUrl
+// Set baseUrl
 axios.defaults.baseURL = baseURL
-// 设置请求头
+// Set request headers
 axios.defaults.headers['Content-Type'] = 'application/json;charset=UTF-8'
-// 设置超时
+// Set timeout
 axios.defaults.timeout = 30000
-// 请求拦截器
+// Request interceptor
 axios.interceptors.request.use(
   config => {
     const token = useUserStore().getToken
@@ -20,7 +20,7 @@ axios.interceptors.request.use(
   }
 );
 
-// 响应拦截器
+// Response interceptor
 axios.interceptors.response.use(
   response => {
     if (response.status == 200) {
@@ -43,7 +43,7 @@ axios.interceptors.response.use(
       }
     }
     setTimeout(() => {
-      if (data.msg) { // 在 catch 中将消息设置为空则不会弹出消息框了
+      if (data.msg) { // Setting message to empty in catch will prevent popup
         if (window.$message) {
           window.$message.destroyAll()
           window.$message.error(data.msg, {
@@ -56,7 +56,7 @@ axios.interceptors.response.use(
   }
 )
 
-// 封装post/get请求
+// Wrap post/get requests
 export default {
   post(url:string, data:any, options:any = {}) {
     return new Promise((resolve, reject) => {
@@ -64,7 +64,7 @@ export default {
         method: 'post',
         url,
         data,
-        //data: qs.stringify(data), //参数序列化
+        //data: qs.stringify(data), // Parameter serialization
         ...options
       })
       .then(res => {
@@ -136,35 +136,35 @@ export default {
         ...options
       }
     )
-    // ok字段判断是否成功获取到数据流
+    // ok field indicates whether data stream was successfully obtained
     if (!response.ok) {
       if (callback) callback()
       // throw new Error('Network response was not ok')
       return
     }
-    // 用来获取一个可读的流的读取器（Reader）以流的方式处理响应体数据
+    // Get a readable stream reader to process response body data as a stream
     const reader = response.body?.getReader()
     if (reader === undefined) {
       if (callback) callback()
       return
     }
-    // 将流中的字节数据解码为文本字符串
+    // Decode byte data in stream to text string
     const textDecoder = new TextDecoder()
     let result = true
     while (result) {
-      // done表示流是否已经完成读取  value包含读取到的数据块
+      // done indicates if stream has finished reading, value contains the data chunk
       const { done, value } = await reader.read()
       if (done) {
         result = false
         break
       }
-      // 拿到的value就是后端分段返回的数据，大多是以data:开头的字符串
-      // 需要通过decode方法处理数据块，例如转换为文本或进行其他操作
+      // The value received is the segmented data returned by backend, usually strings starting with data:
+      // Need to process data chunks through decode method, e.g., convert to text or other operations
       textDecoder.decode(value).split('\n').forEach(val => {
         if (!val) return
         try {
-          // 后端返回的流式数据一般都是以data:开头的字符，排除掉data:后就是需要的数据
-          // 具体返回结构可以跟后端约定
+          // Backend streaming data usually starts with data:, remove data: prefix to get actual data
+          // Specific return structure can be agreed with backend
           if (val.startsWith(': ping')) {
             return
           }

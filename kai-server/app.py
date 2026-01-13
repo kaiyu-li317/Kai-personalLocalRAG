@@ -28,9 +28,9 @@ async def lifespan(app: FastAPI):
   logger.info('----app shutdown----')
 
 app = FastAPI(lifespan=lifespan, debug=True, exception_handlers=golbal_exception_handlers)
-# 全局未处理的错误处理
+# Global unhandled error handler
 app.middleware('http')(global_exceptions_middleware)
-# 将'static'目录设置为静态文件目录
+# Set 'static' directory as static files directory
 app.mount(f'/{DEFAULT_STATIC_DIR_NAME}/{DEFAULT_DOCUMENT_DIR_NAME}', StaticFiles(directory=f'./resources/{DEFAULT_DOCUMENT_DIR_NAME}'), name=DEFAULT_DOCUMENT_DIR_NAME)
 app.mount(f'/{DEFAULT_STATIC_DIR_NAME}', StaticFiles(directory=f'./resources/{DEFAULT_STATIC_DIR_NAME}'), name=DEFAULT_STATIC_DIR_NAME)
 
@@ -47,30 +47,30 @@ DocsetInfoApi(app)
 
 @router.websocket('/ws/knb/{client_id}')
 async def websocket_serve(client_id: str, websocket: WebSocket):
-  # 1、客户端、服务端建立 ws 连接
+  # 1. Client and server establish ws connection
   await websocket.accept()
   manager.connect(client_id, websocket)
-  # # 2、广播某个客户端进入聊天室
-  # await manager.broadcast(f"{client_id} 进入了聊天室")
+  # # 2. Broadcast that a client has entered the chat room
+  # await manager.broadcast(f"{client_id} entered the chat room")
   try:
     while True:
-      # 3、服务端接收客户端发送的内容
+      # 3. Server receives content sent by client
       data = await websocket.receive_text()
-      # 4、广播某个客户端发送的消息
-      # await manager.broadcast(f"{client_id} 发送消息：{data}")
-      # 5、服务端回复客户端
-      # await manager.send_message_to_client(f"服务端回复{client_id}：你发送的信息是：{data}", websocket)
+      # 4. Broadcast message sent by a client
+      # await manager.broadcast(f"{client_id} sent message: {data}")
+      # 5. Server replies to client
+      # await manager.send_message_to_client(f"Server reply to {client_id}: your message is: {data}", websocket)
   except WebSocketDisconnect:
-    # 6、若有客户端断开连接，广播某个客户端离开了
+    # 6. If a client disconnects, broadcast that the client has left
     manager.disconnect(client_id)
-    # await manager.broadcast(f"{client_id} 离开了聊天室")
+    # await manager.broadcast(f"{client_id} left the chat room")
 
 app.include_router(router)
 
 @app.middleware('http')
 async def add_request_header_middleware(request: Request, call_next):
   request.state.user = {'id': 'client_default_user', 'name': 'client_default_user'}
-  # 获取请求头并存储在响应中，供后续处理使用
+  # Get request headers and store in response for subsequent processing
   return await call_next(request)
 
 @app.get('/')

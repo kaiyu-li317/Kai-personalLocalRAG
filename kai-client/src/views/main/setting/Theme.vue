@@ -9,19 +9,19 @@
     :model="formData"
     require-mark-placement="right-hanging"
   >
-    <n-form-item label="主题" path="theme">
+    <n-form-item label="Theme" path="theme">
       <n-radio-group v-model:value="formData.theme" name="radiobuttongroup1">
-        <n-radio-button key="light" value="light" label="浅色主题" />
-        <n-radio-button key="dark" value="dark" label="深色主题" />
+        <n-radio-button key="light" value="light" label="Light" />
+        <n-radio-button key="dark" value="dark" label="Dark" />
       </n-radio-group>
     </n-form-item>
-    <n-form-item label="颜色" path="color">
+    <n-form-item label="Color" path="color">
       <n-color-picker v-model:value="formData.color" :show-alpha="false" style="width: 170px;" :swatches="['#2587F7', '#6E21FF', '#832203', '#389E3E', '#AC4A20', '#D57F3F', '#FF6452', '#FF6E0B']" />
     </n-form-item>
-    <n-form-item label="导航" path="navigation">
+    <n-form-item label="Navigation" path="navigation">
       <n-radio-group v-model:value="formData.navigation" name="radiobuttongroup2">
-        <n-radio-button key="default" value="default" label="默认背景" />
-        <n-radio-button key="primary" value="primary" label="主题背景" />
+        <n-radio-button key="default" value="default" label="Default" />
+        <n-radio-button key="primary" value="primary" label="Primary" />
       </n-radio-group>
     </n-form-item>
   </n-form>

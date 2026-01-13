@@ -80,7 +80,7 @@
     display: block;
   }
   
-  // 输入框图标样式
+  // Input icon styles
   :deep(.n-input__prefix) {
     color: #71717a;
     margin-right: 8px;
@@ -97,14 +97,14 @@
   <div class="kb-login-form">
     <n-form ref="formRef" :model="formData" :rules="formRules" label-placement="left" :show-label="false" @keydown.enter.native="onSubmit">
       <n-form-item path="username">
-        <n-input v-model:value="formData.username" placeholder="登录账号" size="large" @keydown.enter.prevent>
+        <n-input v-model:value="formData.username" placeholder="Username" size="large" @keydown.enter.prevent>
           <template #prefix>
             <n-icon class="iconfont icon-account" />
           </template>
         </n-input>
       </n-form-item>
       <n-form-item path="password">
-        <n-input v-model:value="formData.password" placeholder="登录密码" type="password" size="large" @keydown.enter.prevent>
+        <n-input v-model:value="formData.password" placeholder="Password" type="password" size="large" @keydown.enter.prevent>
           <template #prefix>
             <n-icon class="iconfont icon-lock" />
           </template>
@@ -115,16 +115,16 @@
           <n-radio-button v-model:value="formData.captcha" value="success" style="visibility: hidden;"/>
         </n-radio-group>
         <p @click="vcodeShow = !vcodeShow">
-          <span v-if="Boolean(formData.captcha)" style="color: var(--success-color)">验证成功</span>
-          <span v-else>请点击完成拼图验证</span>
+          <span v-if="Boolean(formData.captcha)" style="color: var(--success-color)">Verified</span>
+          <span v-else>Click to complete verification</span>
         </p>
       </n-form-item>
     </n-form>
     <n-button type="primary" :loading="logining" :disabled="!Boolean(formData.username) || !Boolean(formData.password)" @click="onSubmit">
-      <n-icon class="iconfont icon-login" />&nbsp;登录
+      <n-icon class="iconfont icon-login" />&nbsp;Login
     </n-button>
     <div :class="[`kb-login-vcode`, `${vcodeShow ? 'vcode-show' : ''}`]" v-on-click-outside="onVcodeClick">
-      <Vcode ref="vcodeRef" :show="true" type="inside" :canvasWidth="399" @success="onVcodeSuccess" @reset="onVcodeReset" @fail="onVcodeReset" sliderText="请拖动完成拼图验证" />
+      <Vcode ref="vcodeRef" :show="true" type="inside" :canvasWidth="399" @success="onVcodeSuccess" @reset="onVcodeReset" @fail="onVcodeReset" sliderText="Drag to complete verification" />
     </div>
   </div>
 </template>
@@ -160,13 +160,13 @@
       })
       const formRules = ref({
         username: [
-          { required: true, message: '请输入登录账号', trigger: 'blur' }
+          { required: true, message: 'Please enter username', trigger: 'blur' }
         ],
         password: [
-          { required: true, message: '请输入登录密码', trigger: 'blur' }
+          { required: true, message: 'Please enter password', trigger: 'blur' }
         ],
         captcha: [
-          { required: true, message: '请滑动滑块验证', trigger: 'change' }
+          { required: true, message: 'Please complete verification', trigger: 'change' }
         ]
       })
       const vcodeShow = ref(false)
@@ -187,7 +187,7 @@
         logining.value = true
         proxy.$api.post('/sys/auth/login', { username: formData.value.username, password: aes_encrypt(formData.value.password) }).then(res => {
           if (res.success) {
-            message.success('登录成功')
+            message.success('Login successful')
             const { id, name, token } = res.data
             userStore.setToken(token)
             userStore.setInfo({

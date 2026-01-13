@@ -46,9 +46,9 @@ export default defineConfig(async () => ({
   css: {
     preprocessorOptions: {
       less: {
-        math: 'always', // 括号内才使用数学计算
+        math: 'always', // Only use math calculation within brackets
         globalVars: {
-          // 全局变量
+          // Global variables
           mainColor: 'red',
         },
       },
@@ -62,20 +62,20 @@ export default defineConfig(async () => ({
     port: 11420,
     strictPort: true,
     proxy: {
-      // 带选项写法（对象）
+      // Proxy configuration (object format)
       '/api': {
-        target: 'http://127.0.0.1:6088',                      // 从环境变量文件取值
-        changeOrigin: true,                             // 支持跨域
-        rewrite: (path) => path.replace(/^\/api/, ''),  // 路径重写
+        target: 'http://127.0.0.1:6088',                      // Backend API URL
+        changeOrigin: true,                             // Enable cross-origin
+        rewrite: (path) => path.replace(/^\/api/, ''),  // Path rewrite
       },
       '/static': {
-        target: 'http://127.0.0.1:6088',                      // 从环境变量文件取值
-        changeOrigin: true,                             // 支持跨域
-        rewrite: (path) => path.replace(/^\/api/, ''),  // 路径重写
+        target: 'http://127.0.0.1:6088',                      // Backend API URL
+        changeOrigin: true,                             // Enable cross-origin
+        rewrite: (path) => path.replace(/^\/api/, ''),  // Path rewrite
       },
       '/ws': {
-        target: 'ws://127.0.0.1:6088',                      // 从环境变量文件取值
-        changeOrigin: true,                             // 支持跨域
+        target: 'ws://127.0.0.1:6088',                      // WebSocket URL
+        changeOrigin: true,                             // Enable cross-origin
         ws: true
       }
     },

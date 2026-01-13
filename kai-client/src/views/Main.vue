@@ -34,27 +34,27 @@
 
   const menuOptions = [
     {
-      label: '对 话',
+      label: 'Chat',
       key: 'chat',
       icon: () => renderIconfontIcon('iconfont-kb icon-chat')
     },
     {
-      label: '搜 索',
+      label: 'Search',
       key: 'search',
       icon: () => renderIconfontIcon('iconfont-kb icon-search2')
     },
     {
-      label: '知识库',
+      label: 'Knowledge',
       key: 'repository',
       icon: () => renderIconfontIcon('iconfont-kb icon-knowledge')
     },
     {
-      label: '文档库',
+      label: 'Documents',
       key: 'docset',
       icon: () => renderIconfontIcon('iconfont-kb icon-docset')
     },
     {
-      label: '模 型',
+      label: 'Models',
       key: 'setting',
       icon: () => renderIconfontIcon('iconfont-kb icon-llm')
     }
@@ -119,18 +119,18 @@
 
       const synth = window.speechSynthesis
       const speech = new SpeechSynthesisUtterance()
-      speech.lang = 'zh-CN' // 使用的语言:中文
-      speech.volume = 1 // 声音音量：1
-      speech.rate = 1 // 语速：1
-      speech.pitch = 1 // 音高：1
+      speech.lang = 'zh-CN' // Language: Chinese
+      speech.volume = 1 // Volume: 1
+      speech.rate = 1 // Speech rate: 1
+      speech.pitch = 1 // Pitch: 1
       speech.onend = () => {
         EventBus.emit('on-speech-onend')
       }
 
       const onSpeechOn = (text) => {
         onSpeechOff()
-        speech.text = text // 文字内容: 如果能播放出声音 那可真是泰裤辣！
-        synth.speak(speech) // 播放
+        speech.text = text // Text content to speak
+        synth.speak(speech) // Play speech
       }
       const onSpeechOff = () => {
         EventBus.emit('on-speech-onend')

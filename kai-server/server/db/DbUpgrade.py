@@ -27,28 +27,28 @@ def get_current_version():
 
 def upgrade_db():
   current_version = get_current_version()
-  if (current_version == DB_SCHEMA_VERSION): # 版本一致不需要升级
-    logger.info('数据库版本一致，不需要升级。')
+  if (current_version == DB_SCHEMA_VERSION): # Version matches, no upgrade needed
+    logger.info('Database version matches, no upgrade needed.')
     return
-  logger.error('数据库版本不一致，当前版本为:%d，需要升级到:%d。' % (current_version, DB_SCHEMA_VERSION))
+  logger.error('Database version mismatch, current version: %d, need to upgrade to: %d.' % (current_version, DB_SCHEMA_VERSION))
   try:
     execute_ddl(current_version, DB_SCHEMA_VERSION)
     execute_dml(current_version, DB_SCHEMA_VERSION)
-  except Exception as e: # 失败还需要进一步处理回滚等操作，暂时不处理
+  except Exception as e: # Need further rollback handling on failure, not implemented yet
     traceback.print_exc()
     logger.error(e)
-    logger.error('升级数据库失败，请检查日志。')
+    logger.error('Database upgrade failed, please check logs.')
   else:
-    logger.info('升级数据库成功')
+    logger.info('Database upgrade successful')
     with session_scope() as session:
       if (current_version == 0):
         session.add(SchemaVersion(version=DB_SCHEMA_VERSION))
       else:
         session.query(SchemaVersion).filter(SchemaVersion.version == current_version).update({'version': DB_SCHEMA_VERSION})
-# 遍历文件夹下的sql文件，并获取文件内容
+# Iterate through SQL files in directory and get file contents
 def get_sql_scripts(dir_path:str, current_version:int, target_version:int):
   paths = []
-  for file in os.listdir(dir_path): # 还需要按文件名排序，暂时没做
+  for file in os.listdir(dir_path): # TODO: Need to sort by filename
     if (not file.endswith('.sql')):
       continue
     name = file.split('.')[0]
@@ -56,37 +56,37 @@ def get_sql_scripts(dir_path:str, current_version:int, target_version:int):
       continue
     name = int(name)
     if (current_version == 0):
-      if (name == current_version): # 版本不符合要求，如果没有安装过则直接执行全量脚本，即0.sql
+      if (name == current_version): # If not installed, execute full script (0.sql)
         paths.append(os.path.join(dir_path, file))
     else:
-      if (name > current_version and name <= target_version): # 版本不符合要求
+      if (name > current_version and name <= target_version): # Version doesn't match requirements
         paths.append(os.path.join(dir_path, file))
-  # 获取文件的内容
+  # Get file contents
   contents = [open(path, 'r', encoding='utf-8').read() for path in paths]
-  scripts = [] # 需要执行的脚本
+  scripts = [] # Scripts to execute
   for content in contents:
-    for line in content.split(';'): # 按分号分割，暂时不支持多行sql以及其他情况
+    for line in content.split(';'): # Split by semicolon, multi-line SQL not supported yet
       line = line.strip()
       if (len(line) > 0):
         scripts.append(line)
   return scripts
 
 def execute_ddl(current_version:int, target_version:int):
-  logger.info(f'开始升级数据库DDL版本，从 {current_version} 到 {target_version}')
+  logger.info(f'Starting database DDL upgrade from {current_version} to {target_version}')
   scripts = get_sql_scripts(DDL_DIR, current_version, target_version)
   with session_scope() as session:
     for script in scripts:
       session.execute(text(script))
-  logger.info('升级数据库DDL版本成功')
+  logger.info('Database DDL upgrade successful')
 
 def execute_dml(current_version:int, target_version:int):
-  logger.info(f'开始升级数据库DML版本，从 {current_version} 到 {target_version}')
+  logger.info(f'Starting database DML upgrade from {current_version} to {target_version}')
   scripts = get_sql_scripts(DML_DIR, current_version, target_version)
   with session_scope() as session:
     for script in scripts:
       try:
         session.execute(text(script))
       except IntegrityError as e:
-        if ('UNIQUE constraint failed' not in str(e)): # 主键冲突不处理
+        if ('UNIQUE constraint failed' not in str(e)): # Ignore primary key conflicts
           raise e
-  logger.info('升级数据库DML版本成功')
+  logger.info('Database DML upgrade successful')

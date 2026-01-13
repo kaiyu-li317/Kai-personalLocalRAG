@@ -88,7 +88,7 @@
   }
 }
 
-// 覆盖输入框样式
+// Override input styles
 .kb-login {
   :deep(.n-input) {
     background: #27272a;
@@ -147,14 +147,14 @@
         <!-- <img src="/logo.png" alt="KAI"> -->
         <span class="kb-logo"><logo /></span>
         <span>KAI</span>
-        <span v-if="regist">账号注册</span>
+        <span v-if="regist"> Register</span>
       </template>
       <regist-form v-if="regist" @on-regist-success="regist=false" />
       <login-form v-else />
       <p class="kb-login-more">
         <span @click="onRegist">
-          <template v-if="regist">已有账号，去登录</template>
-          <template v-else>注册账号</template>
+          <template v-if="regist">Already have an account? Login</template>
+          <template v-else>Register</template>
         </span>
       </p>
     </n-card>
@@ -183,7 +183,7 @@
       const userStore = useUserStore()
       const themeType = ref(localRead(THEME_TYPE_KEY) || DEFAULT_THEME_TYPE) // light, dark
       const regist = ref(false)
-      // 注册账号
+      // Register account
       const onRegist = () => {
         regist.value = !regist.value
       }

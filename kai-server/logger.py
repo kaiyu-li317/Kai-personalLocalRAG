@@ -4,22 +4,22 @@
 # @Time    : 2024/4/8
 # @Author  : Summer
 # @File    : logger.py
-# @describe:
+# @describe: Logger configuration
 """
 import colorlog
 import logging
 from logging.handlers import TimedRotatingFileHandler
 
-# 创建logger对象
+# Create logger object
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
-# 创建handler
+# Create handler
 stream_handler = logging.StreamHandler()
-# 创建TimedRotatingFileHandler对象,每天生成一个文件，共备份10个文件
+# Create TimedRotatingFileHandler object, generate a new file every day, keep 10 backup files
 file_handler = TimedRotatingFileHandler(filename='resources/logs/app.log', when='D', interval=1, backupCount=10, encoding='utf-8')
 
-# 创建带颜色的formatter
+# Create colored formatter
 formatter = colorlog.ColoredFormatter(
   "%(log_color)s%(levelname)-8s%(reset)s %(blue)s%(message)s",
   datefmt=None,
@@ -35,16 +35,16 @@ formatter = colorlog.ColoredFormatter(
   style='%'
 )
 
-# 设置handler的formatter
+# Set handler's formatter
 stream_handler.setFormatter(formatter)
 file_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
 
 # logging.basicConfig(handlers=[stream_handler, file_handler], level=logging.DEBUG)
-# 将handler添加到logger中
+# Add handler to logger
 logger.addHandler(stream_handler)
 logger.addHandler(file_handler)
 
-# 记录示例日志
+# Example log records
 # logger.debug('Debug message')
 # logger.info('Info message')
 # logger.warning('Warning message')

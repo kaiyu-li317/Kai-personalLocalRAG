@@ -1,5 +1,5 @@
 # ===================
-# 系统文件
+# System Files
 # ===================
 .DS_Store
 .DS_Store?
@@ -13,7 +13,7 @@ Thumbs.db
 *~
 
 # ===================
-# IDE / 编辑器
+# IDE / Editor
 # ===================
 .idea/
 .vscode/
@@ -22,16 +22,16 @@ Thumbs.db
 *.code-workspace
 
 # ===================
-# Python 后端
+# Python Backend
 # ===================
-# 虚拟环境
+# Virtual environment
 .venv/
 venv/
 env/
 .env
 *.env.local
 
-# Python 缓存
+# Python cache
 __pycache__/
 *.py[cod]
 *$py.class
@@ -57,27 +57,27 @@ wheels/
 *.manifest
 *.spec
 
-# 日志
+# Logs
 *.log
 kai-server/resources/logs/
 
-# 数据库 (用户数据)
+# Database (user data)
 kai-server/resources/database/*.db
 
-# 上传的文档 (用户数据)
+# Uploaded documents (user data)
 kai-server/resources/documents/
 
-# 向量存储 (用户数据)
+# Vector store (user data)
 kai-server/resources/vector_store/
 
-# 静态上传文件
+# Static upload files
 kai-server/resources/static/upload/
 
-# M3E 模型 (需要单独下载)
+# M3E model (needs separate download)
 kai-server/resources/model/m3e/
 
 # ===================
-# Node.js 前端
+# Node.js Frontend
 # ===================
 node_modules/
 npm-debug.log*
@@ -94,7 +94,7 @@ dist-ssr/
 # Tauri
 kai-client/src-tauri/target/
 
-# 自动生成的类型文件
+# Auto-generated type files
 kai-client/auto-imports.d.ts
 kai-client/components.d.ts
 

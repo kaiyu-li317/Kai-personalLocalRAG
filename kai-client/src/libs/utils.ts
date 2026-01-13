@@ -11,8 +11,8 @@ export const renderIconfontIcon = (icon: string, props: any) => {
 export const dialogConfirm = (useDialog: any, dialogProps: any) => {
   const dialog = useDialog.create({
     title: '',
-    negativeText: '取消',
-    positiveText: '确认',
+    negativeText: 'Cancel',
+    positiveText: 'Confirm',
     negativeButtonProps: {
       'render-icon': () => renderIconfontIcon('iconfont icon-close', {})
     },
@@ -38,8 +38,8 @@ export const dialogCreate = (useDialog: any, dialogProps: any, component: any, c
   const dialog = useDialog.create({
     title: '',
     // icon: () => renderIconfontIcon('iconfont icon-plus', { size: '28px' }),
-    negativeText: '取消',
-    positiveText: '确认',
+    negativeText: 'Cancel',
+    positiveText: 'Confirm',
     negativeButtonProps: {
       'render-icon': () => renderIconfontIcon('iconfont icon-close', {})
     },
@@ -56,11 +56,11 @@ export const dialogCreate = (useDialog: any, dialogProps: any, component: any, c
     onPositiveClick: async (e: any) => {
       let cok = childVm.value.ok
       let data
-      let err = false // 是否发生异常
+      let err = false // Whether an error occurred
       if (cok && cok instanceof Function) {
         dialog.loading = true
         try {
-          data = await cok() // 调用下级组件的 ok 方法
+          data = await cok() // Call child component's ok method
         } catch (error) {
           console.error(error)
           err = true
@@ -91,7 +91,7 @@ export const dialogCreate = (useDialog: any, dialogProps: any, component: any, c
   })
 }
 /**
- * 将对象转换为select用的数组
+ * Convert object to array for select options
  * @param component
  * @returns
  */

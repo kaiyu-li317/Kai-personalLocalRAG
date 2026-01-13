@@ -6,16 +6,16 @@ DEFAULT_STATIC_DIR_NAME = 'static'
 DEFAULT_DOCUMENT_DIR_NAME = 'documents'
 RESOURCE_FILE_DIR = f'./{RESOURCE_DIR_NAME}'
 
-# 默认文件上传目录路径
+# Default file upload directory path
 DEFAULT_UPLOAD_FILE_DIR = f'./{RESOURCE_DIR_NAME}/{DEFAULT_STATIC_DIR_NAME}/{DEFAULT_UPLOAD_DIR_NAME}'
-# 数据集上传目录路径
+# Dataset upload directory path
 DATASET_UPLOAD_FILE_DIR = f'./{RESOURCE_DIR_NAME}/documents'
-# 知识库索引文件存储目录路径
+# Knowledge base index file storage directory path
 VECTOR_STORE_FILE_DIR = f'./{RESOURCE_DIR_NAME}/vector_store'
 
-# 系统级别默认用户ID
+# System level default user ID
 DEFAULT_SYSTEM_USER_ID = '_default_user_id_'
-# 模型首选项参数代码
+# Model preference parameter code
 SYSTEM_MODEL_PREFERENCE_PARAM_CODE = 'model_preference'
 
 if not os.path.exists(RESOURCE_FILE_DIR):

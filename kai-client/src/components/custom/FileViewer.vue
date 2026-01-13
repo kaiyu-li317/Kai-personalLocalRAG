@@ -29,7 +29,7 @@
     </div>
     <vue-office-docx v-else-if="docxTypes.includes(type)" :src="url" @rendered="onSucceed" @error="onFailed" />
     <n-alert v-else type="warning" style="margin: 10px;">
-      该文件类型暂不支持预览！
+      This file type is not supported for preview!
     </n-alert>
     <n-spin v-if="loading" />
   </div>

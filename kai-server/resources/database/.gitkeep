@@ -1,2 +1,2 @@
-# 此目录用于存放 SQLite 数据库文件
-# 数据库文件会在首次启动时自动创建
+# This directory stores SQLite database files
+# Database files will be created automatically on first startup
