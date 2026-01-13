@@ -1,116 +1,124 @@
-# 📚 KAI - Personal Local RAG<div align="center"><div align="center"><div align="center"># WenKB - 智能个人知识库桌面应用
+<div align="center"># 📚 KAI - Personal Local RAG<div align="center"><div align="center"><div align="center">
 
 
 
-**Next-Generation Knowledge Management Tool Powered by LLM**
+# 📚 KAI - Personal Local RAG
 
 
 
-[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)# 📚 KAI - Personal Local RAG
+**Next-Generation Knowledge Management Tool Powered by LLM****Next-Generation Knowledge Management Tool Powered by LLM**
+
+
+
+[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 
 [![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)# 📚 KAI - Personal Local RAG
 
 [![Tauri](https://img.shields.io/badge/Tauri-2.0-orange.svg)](https://tauri.app)
 
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)**Next-Generation Knowledge Management Tool Powered by LLM**# 📚 KAI - Personal Local RAG
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
 
 
 
-[Features](#-features) • [Quick Start](#-quick-start) • [Project Structure](#-project-structure) • [Configuration](#-configuration) • [Development](#-development)
+[Features](#-features) • [Quick Start](#-quick-start) • [Project Structure](#-project-structure) • [Configuration](#-configuration) • [Development](#-development)[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)
 
 
 
----[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
+</div>[![Tauri](https://img.shields.io/badge/Tauri-2.0-orange.svg)](https://tauri.app)
 
 
 
-## ✨ Features[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
+---[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)**Next-Generation Knowledge Management Tool Powered by LLM**# 📚 KAI - Personal Local RAG
 
 
 
-### 📖 Smart Knowledge Base Management[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)**Next-Generation Knowledge Management Tool Powered by LLM**# 📚 KAI - 智能个人知识库WenKB 是一款基于大语言模型（LLM）的下一代知识管理工具，融合 AI 能力重新定义知识组织方式。支持多源知识整合、智能问答、自动化知识加工和可视化知识网络，助力构建您的第二大脑。
+## ✨ Features
+
+
+
+### 📖 Smart Knowledge Base Management[Features](#-features) • [Quick Start](#-quick-start) • [Project Structure](#-project-structure) • [Configuration](#-configuration) • [Development](#-development)
 
 - **Multi-format Import** - Support PDF, Word, Markdown, web links, plain text and more
 
-- **AI Auto-processing** - Automatic segmentation, summary generation, Q&A pair creation, knowledge extraction[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+- **AI Auto-processing** - Automatic segmentation, summary generation, Q&A pair creation, knowledge extraction
 
 - **Document Management** - Version control, knowledge linking, batch operations
 
-- **Dual-mode Editor** - Markdown + Rich text hybrid editing
+- **Dual-mode Editor** - Markdown + Rich text hybrid editing---[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 
 
-
-### 🔍 Intelligent Search & Q&A[Features](#-features) • [Quick Start](#-quick-start) • [Project Structure](#-project-structure) • [Configuration](#-configuration) • [Development](#-development)
-
-- **Semantic Search** - Deep cross-document retrieval based on vector database
-
-- **Conversational Q&A** - Follow-up questions, source citation, multi-turn reasoning[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
-
-- **Local Deployment** - Fully local data storage, privacy protection
-
-</div>
-
-### 🤖 AI Capabilities
-
-- **Local LLM** - Integrated with Ollama, supports Qwen, Llama, DeepSeek, Mistral and more[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
-
-- **Embedding Model** - Built-in M3E embedding model for better semantic understanding
-
-- **Multiple Providers** - Support for OpenAI, DeepSeek, Moonshot, Tongyi, Zhipu AI---
-
-
-
----[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)**基于大语言模型的下一代知识管理工具**## ✨ 核心功能
-
-
-
-## 🚀 Quick Start## ✨ Features
-
-
-
-### Requirements[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-
-
-| Dependency | Version | Description |### 📖 Smart Knowledge Base Management
-
-|------------|---------|-------------|
-
-| Python | >= 3.11 | Backend runtime |- **Multi-format Import** - Support PDF, Word, Markdown, web links, plain text and more
-
-| Node.js | >= 18.x | Frontend runtime |
-
-| Ollama | Latest | Local LLM service (optional) |- **AI Auto-processing** - Automatic segmentation, summary generation, Q&A pair creation, knowledge extraction
-
-
-
-### 1. Clone the Repository- **Document Management** - Version control, knowledge linking, batch operations[Features](#-features) • [Quick Start](#-quick-start) • [Project Structure](#-project-structure) • [Configuration](#-configuration) • [Development](#-development)
-
-
-
-```bash- **Dual-mode Editor** - Markdown + Rich text hybrid editing
-
-git clone https://github.com/kaiyu-li317/Kai-personalLocalRAG.git
-
-cd Kai-personalLocalRAG[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)### 智能知识库管理
-
-```
 
 ### 🔍 Intelligent Search & Q&A
 
-### 2. Install Ollama (Optional, for local LLM)
+- **Semantic Search** - Deep cross-document retrieval based on vector database
 
-- **Semantic Search** - Deep cross-document retrieval based on vector database</div>
+- **Conversational Q&A** - Follow-up questions, source citation, multi-turn reasoning## ✨ Features[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
+
+- **Local Deployment** - Fully local data storage, privacy protection
+
+
+
+### 🤖 AI Capabilities
+
+- **Local LLM** - Integrated with Ollama, supports Qwen, Llama, DeepSeek, Mistral and more### 📖 Smart Knowledge Base Management[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)**Next-Generation Knowledge Management Tool Powered by LLM**# 📚 KAI - Intelligent Personal Knowledge Base is a next-generation knowledge management tool based on large language models (LLMS), integrating AI capabilities to redefine the way knowledge is organized. Supports multi-source knowledge integration, intelligent question answering, automated knowledge processing and visual knowledge networks, helping to build your second brain.
+
+- **Embedding Model** - Built-in M3E embedding model for semantic understanding
+
+- **Multiple Providers** - Support for OpenAI, DeepSeek, Moonshot, Tongyi, Zhipu AI- **Multi-format Import** - Support PDF, Word, Markdown, web links, plain text and more
+
+
+
+---- **AI Auto-processing** - Automatic segmentation, summary generation, Q&A pair creation, knowledge extraction[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+
+
+## 🚀 Quick Start- **Document Management** - Version control, knowledge linking, batch operations
+
+
+
+### Requirements- **Dual-mode Editor** - Markdown + Rich text hybrid editing
+
+
+
+| Dependency | Version | Description |
+
+|------------|---------|-------------|
+
+| Python | >= 3.11 | Backend runtime |### 🔍 Intelligent Search & Q&A[Features](#-features) • [Quick Start](#-quick-start) • [Project Structure](#-project-structure) • [Configuration](#-configuration) • [Development](#-development)
+
+| Node.js | >= 18.x | Frontend runtime |
+
+| Ollama | Latest | Local LLM service (optional) |- **Semantic Search** - Deep cross-document retrieval based on vector database
+
+
+
+### 1. Clone the Repository- **Conversational Q&A** - Follow-up questions, source citation, multi-turn reasoning[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
+
+
+
+```bash- **Local Deployment** - Fully local data storage, privacy protection
+
+git clone https://github.com/kaiyu-li317/Kai-personalLocalRAG.git
+
+cd Kai-personalLocalRAG</div>
+
+```
+
+### 🤖 AI Capabilities
+
+### 2. Install Ollama (Optional)
+
+- **Local LLM** - Integrated with Ollama, supports Qwen, Llama, DeepSeek, Mistral and more[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
 
 Download from [ollama.ai](https://ollama.ai) and install, then pull a model:
 
-- **Conversational Q&A** - Follow-up questions, source citation, multi-turn reasoning
+- **Embedding Model** - Built-in M3E embedding model for better semantic understanding
 
 ```bash
 
-ollama pull qwen2.5:7b- **Local Deployment** - Fully local data storage, privacy protection[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)- **多格式导入**：支持文档（PDF/Word/Markdown）、网页链接、纯文本等多源数据接入
+ollama pull qwen2.5:7b- **Multiple Providers** - Support for OpenAI, DeepSeek, Moonshot, Tongyi, Zhipu AI---
 
 # or
 
@@ -118,15 +126,15 @@ ollama pull llama3.2:3b
 
 ```
 
-### 🤖 AI Capabilities---
+---[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)**Next-generation personal local knowledge management tools based on large language models**## ✨ 核心功能
 
 ### 3. Start the Application
 
-- **Local LLM** - Integrated with Ollama, supports Qwen, Llama, Mistral and more
 
-#### Option A: Quick Start Script
 
-- **Chinese Optimized** - Built-in M3E Chinese embedding model for better semantic understanding[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)- **AI 自动化处理**：自动分段、生成摘要、创建 Q&A 对、提取知识图谱三元组
+**Option A: Quick Start Script**
+
+## 🚀 Quick Start## ✨ Features
 
 ```bash
 
@@ -134,60 +142,243 @@ chmod +x start.sh
 
 ./start.sh
 
-```---## ✨ Features
+```### Requirements[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 
 
-#### Option B: Manual Start
+**Option B: Manual Start**
 
 
 
-**Backend:**## 🚀 Quick Start[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)- **动态维护**：支持文档版本管理、知识关联标注、批量处理操作
+Backend:| Dependency | Version | Description |### 📖 Smart Knowledge Base Management
 
 ```bash
 
-cd kai-server
+cd kai-server|------------|---------|-------------|
 
 python -m venv venv
 
-source venv/bin/activate  # On Windows: venv\Scripts\activate### Requirements### 📖 Smart Knowledge Base Management
+source venv/bin/activate  # Windows: venv\Scripts\activate| Python | >= 3.11 | Backend runtime |- **Multi-format Import** - Support PDF, Word, Markdown, web links, plain text and more
 
 pip install -r requirements.txt
 
-python app.py
+python app.py| Node.js | >= 18.x | Frontend runtime |
 
 ```
 
-| Dependency | Version | Description |- **Multi-format Import** - Support PDF, Word, Markdown, web links, plain text and more- **双模式编辑器**：Markdown + 富文本混合编辑
+| Ollama | Latest | Local LLM service (optional) |- **AI Auto-processing** - Automatic segmentation, summary generation, Q&A pair creation, knowledge extraction
 
-**Frontend:**
+Frontend:
 
-```bash|------------|---------|-------------|
+```bash
 
 cd kai-client
 
-npm install| Python | >= 3.11 | Backend runtime |- **AI Auto-processing** - Automatic segmentation, summary generation, Q&A pair creation, knowledge extraction
+npm install### 1. Clone the Repository- **Document Management** - Version control, knowledge linking, batch operations[Features](#-features) • [Quick Start](#-quick-start) • [Project Structure](#-project-structure) • [Configuration](#-configuration) • [Development](#-development)
 
 npm run dev
 
+```
+
+
+
+### 4. Access the Application```bash- **Dual-mode Editor** - Markdown + Rich text hybrid editing
+
+
+
+Open browser: `http://localhost:11420`git clone https://github.com/kaiyu-li317/Kai-personalLocalRAG.git
+
+
+
+---cd Kai-personalLocalRAG[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)### 智能知识库管理
+
+
+
+## 📁 Project Structure```
+
+
+
+```### 🔍 Intelligent Search & Q&A
+
+Kai-personalLocalRAG/
+
+├── kai-client/              # Frontend (Vue 3 + Vite + Tauri)### 2. Install Ollama (Optional, for local LLM)
+
+│   ├── src/
+
+│   │   ├── views/           # Page components- **Semantic Search** - Deep cross-document retrieval based on vector database</div>
+
+│   │   ├── components/      # Reusable components
+
+│   │   ├── store/           # State managementDownload from [ollama.ai](https://ollama.ai) and install, then pull a model:
+
+│   │   └── router/          # Routing
+
+│   └── src-tauri/           # Tauri desktop config- **Conversational Q&A** - Follow-up questions, source citation, multi-turn reasoning
+
+│
+
+├── kai-server/              # Backend (Python + FastAPI)```bash
+
+│   ├── server/
+
+│   │   ├── api/             # API endpointsollama pull qwen2.5:7b- **Local Deployment** - Fully local data storage, privacy protection[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)- **多格式导入**：支持文档（PDF/Word/Markdown）、网页链接、纯文本等多源数据接入
+
+│   │   ├── core/            # Business logic
+
+│   │   ├── db/              # Database management# or
+
+│   │   └── model/           # Data models
+
+│   ├── config/              # Configurationollama pull llama3.2:3b
+
+│   └── resources/           # Static resources
+
+│```
+
+├── start.sh                 # Quick start script
+
+└── stop.sh                  # Stop services script### 🤖 AI Capabilities---
+
+```
+
+### 3. Start the Application
+
+---
+
+- **Local LLM** - Integrated with Ollama, supports Qwen, Llama, Mistral and more
+
+## ⚙️ Configuration
+
+#### Option A: Quick Start Script
+
+### LLM Provider Setup
+
+- **Chinese Optimized** - Built-in M3E Chinese embedding model for better semantic understanding[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)- **AI 自动化处理**：自动分段、生成摘要、创建 Q&A 对、提取知识图谱三元组
+
+1. Go to **Settings** > **LLM**
+
+2. Select a provider (Ollama, OpenAI, DeepSeek, etc.)```bash
+
+3. Configure API key or base URL
+
+4. Click **Sync Models** to load available modelschmod +x start.sh
+
+
+
+### Ollama Configuration./start.sh
+
+
+
+Default base URL: `http://127.0.0.1:11434````---## ✨ Features
+
+
+
+Recommended models:
+
+- `qwen2.5:7b` - General use
+
+- `llama3.2:3b` - Lightweight#### Option B: Manual Start
+
+- `deepseek-r1:8b` - Reasoning tasks
+
+
+
+---
+
+**Backend:**## 🚀 Quick Start[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)- **动态维护**：支持文档版本管理、知识关联标注、批量处理操作
+
+## 🛠️ Development
+
+```bash
+
+### Tech Stack
+
+cd kai-server
+
+**Frontend:**
+
+- Vue 3 + Composition APIpython -m venv venv
+
+- Vite 5.x
+
+- Naive UIsource venv/bin/activate  # On Windows: venv\Scripts\activate### Requirements### 📖 Smart Knowledge Base Management
+
+- Tauri 2.0 (Desktop)
+
+pip install -r requirements.txt
+
+**Backend:**
+
+- Python 3.11+python app.py
+
+- FastAPI
+
+- SQLAlchemy```
+
+- LangChain
+
+- ChromaDB (Vector Store)| Dependency | Version | Description |- **Multi-format Import** - Support PDF, Word, Markdown, web links, plain text and more- **双模式编辑器**：Markdown + 富文本混合编辑
+
+
+
+### Build Desktop App**Frontend:**
+
+
+
+```bash```bash|------------|---------|-------------|
+
+cd kai-client
+
+npm run tauri buildcd kai-client
+
+```
+
+npm install| Python | >= 3.11 | Backend runtime |- **AI Auto-processing** - Automatic segmentation, summary generation, Q&A pair creation, knowledge extraction
+
+---
+
+npm run dev
+
+## 📄 License
+
 ```| Node.js | >= 18.x | Frontend runtime |
 
+MIT License - see [LICENSE](LICENSE) for details.
 
+
+
+---
 
 ### 4. Access the Application| Ollama | Latest | Local LLM service |- **Document Management** - Version control, knowledge linking, batch operations[功能特性](#-功能特性) • [快速开始](#-快速开始) • [项目结构](#-项目结构) • [配置说明](#-配置说明) • [开发指南](#-开发指南)
 
+## 🤝 Contributing
 
 
-Open your browser and navigate to: `http://localhost:11420`
 
+1. Fork the repository
 
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)Open your browser and navigate to: `http://localhost:11420`
+
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+
+4. Push to branch (`git push origin feature/AmazingFeature`)
+
+5. Open a Pull Request
 
 ---### 1. Clone the Repository- **Dual-mode Editor** - Markdown + Rich text hybrid editing
 
+---
 
+
+
+## 📧 Contact
 
 ## 📁 Project Structure
 
+- GitHub: [@kaiyu-li317](https://github.com/kaiyu-li317)
+
+- Repository: [Kai-personalLocalRAG](https://github.com/kaiyu-li317/Kai-personalLocalRAG)
 
 
 ``````bash### 强大的搜索与问答
