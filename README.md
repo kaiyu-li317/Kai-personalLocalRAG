@@ -1,12 +1,4 @@
-<div align="center"># 📚 KAI - Personal Local RAG<div align="center"><div align="center"><div align="center">
-
-
-
-A local knowledge management system based on Retrieval-Augmented Generation (RAG), designed for personal use with complete data privacy.
-
-
-
-## Overview# 📚 KAI - Personal Local RAG
+# Overview# KAI - Personal Local RAG
 
 
 
@@ -14,11 +6,11 @@ KAI is a desktop application that enables users to build a personal knowledge ba
 
 
 
-## Features**Next-Generation Knowledge Management Tool Powered by LLM****Next-Generation Knowledge Management Tool Powered by LLM**
+# Features**Next-Generation Knowledge Management Tool Powered by LLM****Next-Generation Knowledge Management Tool Powered by LLM**
 
 
 
-### Knowledge Base Management
+# Knowledge Base Management
 
 
 
@@ -30,9 +22,9 @@ KAI is a desktop application that enables users to build a personal knowledge ba
 
 - **Version Control**: Track document changes and maintain revision history
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)# 📚 KAI - Personal Local RAG
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org) KAI - Personal Local RAG
 
-### Intelligent Search and Q&A
+# Intelligent Search and Q&A
 
 [![Tauri](https://img.shields.io/badge/Tauri-2.0-orange.svg)](https://tauri.app)
 
@@ -122,7 +114,7 @@ KAI is a desktop application that enables users to build a personal knowledge ba
 
 ### Setup
 
-### 🤖 AI Capabilities
+# AI Capabilities
 
 1. Clone the repository:
 
@@ -150,7 +142,7 @@ python -m venv venv
 
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
-pip install -r requirements.txt## 🚀 Quick Start- **Document Management** - Version control, knowledge linking, batch operations
+pip install -r requirements.txt## Quick Start- **Document Management** - Version control, knowledge linking, batch operations
 
 python app.py
 
@@ -214,7 +206,7 @@ git clone https://github.com/kaiyu-li317/Kai-personalLocalRAG.git
 
 
 
-### Ollama Configuration### 🤖 AI Capabilities
+### Ollama Configuration### AI Capabilities
 
 
 
@@ -254,7 +246,7 @@ Combines keyword-based and semantic vector search for improved accuracy. The sys
 
 ### Adaptive Document Processing
 
----[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)**Next-generation personal local knowledge management tools based on large language models**## ✨ 核心功能
+---[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)**Next-generation personal local knowledge management tools based on large language models**#
 
 The system analyzes document structure and content type to apply appropriate segmentation strategies. Technical documents, narratives, and structured data are processed differently to preserve context and meaning.
 
@@ -270,7 +262,7 @@ Designed to work completely offline with Ollama, while also supporting cloud pro
 
 ### Lightweight Desktop Packaging
 
-## 🚀 Quick Start## ✨ Features
+## Quick Start## Features
 
 Built with Tauri instead of Electron, resulting in significantly smaller application size and lower memory footprint while maintaining full cross-platform compatibility.
 
@@ -417,7 +409,7 @@ Kai-personalLocalRAG/
 
 - **Local LLM** - Integrated with Ollama, supports Qwen, Llama, Mistral and more
 
-## ⚙️ Configuration
+## Configuration
 
 #### Option A: Quick Start Script
 
@@ -455,9 +447,9 @@ Recommended models:
 
 ---
 
-**Backend:**## 🚀 Quick Start[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)- **动态维护**：支持文档版本管理、知识关联标注、批量处理操作
+**Backend:**## Quick Start[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)- **动态维护**：支持文档版本管理、知识关联标注、批量处理操作
 
-## 🛠️ Development
+## Development
 
 ```bash
 
@@ -487,7 +479,7 @@ pip install -r requirements.txt
 
 - LangChain
 
-- ChromaDB (Vector Store)| Dependency | Version | Description |- **Multi-format Import** - Support PDF, Word, Markdown, web links, plain text and more- **双模式编辑器**：Markdown + 富文本混合编辑
+- ChromaDB (Vector Store)| Dependency | Version | Description |- **Multi-format Import** - Support PDF, Word, Markdown, web links, plain text and more- **Dual-mode editor**：Markdown + Rich text mixed editing
 
 
 
@@ -519,9 +511,9 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-### 4. Access the Application| Ollama | Latest | Local LLM service |- **Document Management** - Version control, knowledge linking, batch operations[功能特性](#-功能特性) • [快速开始](#-快速开始) • [项目结构](#-项目结构) • [配置说明](#-配置说明) • [开发指南](#-开发指南)
+### 4. Access the Application| Ollama | Latest | Local LLM service |- **Document Management** - Version control, knowledge linking, Batch operations [features] (# - features), [quick start] (# - quick start), [projects] structure (# - project structure), [configuration instructions] (# - configuration instructions), [] development guide (# - development guide)
 
-## 🤝 Contributing
+## Contributing
 
 
 
@@ -541,16 +533,14 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 
 
-## 📧 Contact
+## Contact
+email: kaiyuli317@gmail.com
 
-## 📁 Project Structure
+## Project Structure
 
 - GitHub: [@kaiyu-li317](https://github.com/kaiyu-li317)
 
 - Repository: [Kai-personalLocalRAG](https://github.com/kaiyu-li317/Kai-personalLocalRAG)
-
-
-``````bash### 强大的搜索与问答
 
 kai-main/
 
@@ -566,7 +556,7 @@ kai-main/
 
 │   │   └── router/      # Routing
 
-│   └── src-tauri/       # Tauri desktop app config- **Semantic Search** - Deep cross-document retrieval based on vector database</div>- **语义搜索**：基于向量数据库的跨文档深度检索
+│   └── src-tauri/       # Tauri desktop app config- **Semantic Search** - Deep cross-document retrieval based on vector database</div>- ** Semantic Search ** : Cross-document deep retrieval based on vector databases
 
 │
 
@@ -582,7 +572,7 @@ kai-main/
 
 │   │   └── model/       # Data models
 
-│   ├── config/          # Configuration files# macOS- **Local Deployment** - Fully local data storage, privacy protection- **对话式交互**：支持追问、溯源引用、多轮知识推理
+│   ├── config/          # Configuration files# macOS- **Local Deployment** - Fully local data storage, privacy protection- ** Conversational interaction ** : Supports follow-up questioning, source tracing and citation, and multi-round knowledge reasoning
 
 │   └── resources/       # Static resources & database
 
@@ -598,9 +588,9 @@ kai-main/
 
 ---
 
-curl -fsSL https://ollama.com/install.sh | sh### 🤖 AI Capabilities---
+curl -fsSL https://ollama.com/install.sh | sh# AI Capabilities---
 
-## ⚙️ Configuration
+# Configuration
 
 
 
@@ -630,7 +620,7 @@ Supported models:### 3. One-Click Start
 
 - `qwen2.5:7b` - Recommended for general use
 
-- `llama3.2:3b` - Lightweight option---## ✨ 功能特性
+- `llama3.2:3b` - Lightweight option---
 
 - `deepseek-r1:8b` - Good for reasoning tasks
 
@@ -646,7 +636,7 @@ chmod +x start.sh stop.sh
 
 ### Tech Stack
 
-## 🚀 Quick Start## 🏗️ 项目架构
+## Quick Start## 
 
 **Frontend:**
 
@@ -662,7 +652,7 @@ chmod +x start.sh stop.sh
 
 **Backend:**
 
-- Python 3.11+### Requirements### 📖 智能知识库管理
+- Python 3.11+### Requirements### intelligent knowledge base management
 
 - FastAPI
 
@@ -678,7 +668,7 @@ chmod +x start.sh stop.sh
 
 
 
-```bash- **Backend API**: http://localhost:6088| Dependency | Version | Description |- **多格式导入** - 支持 PDF、Word、Markdown、网页链接、纯文本等多源数据```
+```bash- **Backend API**: http://localhost:6088| Dependency | Version | Description |- ** Multi-format import ** - Supports PDF, Word, Markdown, web links, plain text and other multi-source data
 
 cd kai-client
 
@@ -692,7 +682,7 @@ npm run tauri build- **API Docs**: http://localhost:6088/docs
 
 ### 5. Stop Services
 
-## 📄 License
+## License
 
 | Python | >= 3.11 | Backend runtime |- **AI 自动处理** - 自动分段、生成摘要、创建 Q&A 对、提取知识要点kai-main/
 
@@ -704,23 +694,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ./stop.sh| Node.js | >= 18.x | Frontend runtime |
 
-## 🤝 Contributing
-
-```
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-| Ollama | Latest | Local LLM service |- **文档管理** - 支持版本管理、知识关联、批量操作├── wenkb-client/          # 前端 (Vue 3 + Vite + Tauri)
-
-1. Fork the repository
-
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)---
-
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-
-5. Open a Pull Request
 
 ## 📁 Project Structure
 
@@ -728,7 +701,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ### 1. Clone the Repository- **双模式编辑** - Markdown + 富文本混合编辑器│   ├── src/
 
-## 📧 Contact
+## Contact
 
 ```
 
