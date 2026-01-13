@@ -26,22 +26,22 @@
 <template>
   <n-card class="kb-repos" :bordered="false">
     <template #header>
-      <n-icon class="iconfont-kb icon-knowledge"></n-icon>我的知识库
+      <n-icon class="iconfont-kb icon-knowledge"></n-icon>My Knowledge Base
     </template>
     <template #header-extra>
-      <n-input v-model:value="inputValue" placeholder="输入知识库名称搜索" autofocus :on-input="onInputChange">
+      <n-input v-model:value="inputValue" placeholder="Search knowledge base by name" autofocus :on-input="onInputChange">
         <template #prefix>
           <n-icon class="iconfont icon-magnify"></n-icon>
         </template>
       </n-input>
-      <n-button type="primary" @click="addForm"><n-icon class="iconfont icon-plus"></n-icon>&nbsp;新建</n-button>
+      <n-button type="primary" @click="addForm"><n-icon class="iconfont icon-plus"></n-icon>&nbsp;Create</n-button>
     </template>
-    <card-list :dataList="repositoryList" idKey="reposId" titleKey="reposNm" descKey="reposDesc" defaultDesc="该知识库还没有介绍~"
+    <card-list :dataList="repositoryList" idKey="reposId" titleKey="reposNm" descKey="reposDesc" defaultDesc="No description yet~"
       @on-option-select="onOptionSelect" @on-item-click="turnToDetail"
     />
     <n-empty v-if="repositoryList.length === 0">
       <template #extra>
-        <n-button type="primary" @click="addForm"><n-icon class="iconfont icon-plus"></n-icon>&nbsp;新建</n-button>
+        <n-button type="primary" @click="addForm"><n-icon class="iconfont icon-plus"></n-icon>&nbsp;Create</n-button>
       </template>
     </n-empty>
   </n-card>
@@ -63,7 +63,7 @@
     },
     setup() {
       const dialog = useDialog()
-      // 获取当前组件的实例、上下文来操作router和vuex等。相当于this
+      // Get current component instance and context for router and vuex operations
 	    const { proxy, ctx } = getCurrentInstance()
       const router = useRouter()
       const sourceRepositoryList = ref([])
@@ -80,7 +80,7 @@
       initData()
       const addForm = () => {
         dialogCreate(dialog, {
-          title: `新增知识库`,
+          title: `Create Knowledge Base`,
           style: 'width: 50%;',
           maskClosable: false,
           icon: () => renderIconfontIcon('iconfont-kb icon-knowledge', { size: '28px' }),
@@ -98,7 +98,7 @@
       const onOptionSelect = (key, repos) => {
         if (key === 'edit') {
           dialogCreate(dialog, {
-            title: `修改知识库`,
+            title: `Edit Knowledge Base`,
             style: 'width: 50%;',
             maskClosable: false,
             icon: () => renderIconfontIcon('iconfont-kb icon-knowledge', { size: '28px' }),
@@ -116,8 +116,8 @@
           })
         } else if (key === 'delete') {
           dialogConfirm(dialog, {
-            title: '删除',
-            content: '确定删除该知识库么？',
+            title: 'Delete',
+            content: 'Are you sure you want to delete this knowledge base?',
             type: 'warning',
             onPositiveClick: (e, dialog) => {
               dialog.loading = true

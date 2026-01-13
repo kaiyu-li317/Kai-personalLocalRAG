@@ -35,7 +35,7 @@
     class="kb-model-selector" 
     clearable
     v-model:value="formData[valueKey]"
-    placeholder="请选择模型"
+    placeholder="Please select a model"
     :options="llmOptions"
     :disabled="disabled"
   />

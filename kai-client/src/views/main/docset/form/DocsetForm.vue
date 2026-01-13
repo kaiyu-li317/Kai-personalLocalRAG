@@ -9,13 +9,13 @@
     :rules="formRules"
     require-mark-placement="right-hanging"
   >
-    <n-form-item label="名称" path="setNm">
-      <n-input v-model:value="formData.setNm" placeholder="请输入文档集名称" />
+    <n-form-item label="Name" path="setNm">
+      <n-input v-model:value="formData.setNm" placeholder="Please enter document set name" />
     </n-form-item>
-    <n-form-item label="介绍" path="setDesc">
+    <n-form-item label="Description" path="setDesc">
       <n-input
         v-model:value="formData.setDesc"
-        placeholder="请输入文档集介绍"
+        placeholder="Please enter document set description"
         type="textarea"
         :autosize="{
           minRows: 3,
@@ -51,7 +51,7 @@ export default defineComponent({
       setNm: [
         {
           required: true,
-          message: '文档库名称必须填写',
+          message: 'Document library name is required',
           trigger: [ 'blur' ]
         }
       ]

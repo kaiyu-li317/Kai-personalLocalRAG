@@ -9,8 +9,8 @@
     :rules="formRules"
     require-mark-placement="right-hanging"
   >
-    <n-form-item label="标题" path="chatTtl">
-      <n-input v-model:value="formData.chatTtl" placeholder="请输入会话标题" />
+    <n-form-item label="Title" path="chatTtl">
+      <n-input v-model:value="formData.chatTtl" placeholder="Please enter chat title" />
     </n-form-item>
   </n-form>
 </template>
@@ -42,7 +42,7 @@ export default defineComponent({
       chatTtl: [
         {
           required: true,
-          message: '会话标题必须填写',
+          message: 'Chat title is required',
           trigger: [ 'blur' ]
         }
       ]

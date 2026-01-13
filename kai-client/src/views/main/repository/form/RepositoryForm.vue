@@ -9,16 +9,16 @@
     :rules="formRules"
     require-mark-placement="right-hanging"
   >
-    <n-form-item label="名称" path="reposNm">
-      <n-input v-model:value="formData.reposNm" placeholder="请输入知识库名称" />
+    <n-form-item label="Name" path="reposNm">
+      <n-input v-model:value="formData.reposNm" placeholder="Please enter knowledge base name" />
     </n-form-item>
-    <n-form-item label="索引" path="vecModlId">
+    <n-form-item label="Index Model" path="vecModlId">
       <model-selector :formData="formData" valueKey="vecModlId" modelType="text-embedding" :disabled="isEdit"/>
     </n-form-item>
-    <n-form-item label="介绍" path="reposDesc">
+    <n-form-item label="Description" path="reposDesc">
       <n-input
         v-model:value="formData.reposDesc"
-        placeholder="请输入知识库介绍"
+        placeholder="Please enter knowledge base description"
         type="textarea"
         :autosize="{
           minRows: 3,
@@ -63,14 +63,14 @@ export default defineComponent({
       reposNm: [
         {
           required: true,
-          message: '知识库名称必须填写',
+          message: 'Knowledge base name is required',
           trigger: [ 'blur' ]
         }
       ],
       vecModlId: [
         {
           required: true,
-          message: '请选择构建索引的模型',
+          message: 'Please select an embedding model',
           trigger: [ 'change' ]
         }
       ]

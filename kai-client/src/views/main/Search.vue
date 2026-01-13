@@ -126,12 +126,12 @@
         <div class="kb-search-info">
           <n-icon class="iconfont-kb icon-knowledge"></n-icon>
           <n-dropdown trigger="hover" :options="reposOptions" :on-select="onReposSelect">
-            <span title="切换对话知识库">{{ selectedRepos.reposNm }}</span>
+            <span title="Switch knowledge base">{{ selectedRepos.reposNm }}</span>
           </n-dropdown>
           <n-icon class="iconfont icon-unfoldmore"></n-icon>
         </div>
         <div class="kb-search-input">
-          <n-input v-model:value="inputValue" type="textarea" autofocus placeholder="请输入搜索文本&#10;搜索 [Enter]/换行 [Ctrl + Enter]" @keydown="onInputKeyDown"
+          <n-input v-model:value="inputValue" type="textarea" autofocus placeholder="Enter search text&#10;Search [Enter] / New line [Ctrl + Enter]" @keydown="onInputKeyDown"
             :autosize="{
               minRows: 10,
               maxRows: 10
@@ -140,12 +140,12 @@
         </div>
         <div class="kb-search-option">
           <n-button type="primary" @click="onSearch" :loading="loading">
-            <n-icon class="iconfont-kb icon-search" />&nbsp;搜索
+            <n-icon class="iconfont-kb icon-search" />&nbsp;Search
           </n-button>
         </div>
         <div class="kb-search-history">
           <p class="title">
-            <n-icon class="iconfont icon-avtimer" />搜索历史
+            <n-icon class="iconfont icon-avtimer" />Search History
           </p>
           <n-scrollbar class="list">
             <n-list hoverable clickable :show-divider="false">
@@ -157,7 +157,7 @@
                   <n-tag size="small" :color="{color: 'var(--primary-color-opacity-5)', borderColor: 'var(--primary-color-opacity-3)', textColor: 'var(--primary-color)'}">
                     <n-time :time="Date.now()" :to="new Date(hist.srchTm)" type="relative" />
                   </n-tag>
-                  <n-button size="tiny" class="delete" quaternary @click.stop="e => deleteHist(hist, e)" title="删除"><n-icon class="iconfont icon-delete"></n-icon></n-button>
+                  <n-button size="tiny" class="delete" quaternary @click.stop="e => deleteHist(hist, e)" title="Delete"><n-icon class="iconfont icon-delete"></n-icon></n-button>
                 </template>
               </n-list-item>
             </n-list>
@@ -167,7 +167,7 @@
       </n-layout-sider>
       <n-layout-content class="kb-search-result" content-style="padding: 24px;">
         <p class="title">
-          <n-icon class="iconfont-kb icon-search" />搜索结果
+          <n-icon class="iconfont-kb icon-search" />Search Results
         </p>
         <n-scrollbar ref="scrollbarRef" class="list">
           <n-list hoverable clickable :show-divider="false">
@@ -176,7 +176,7 @@
                 <template #header>
                   <n-space size="small">
                     <n-tag :bordered="false" size="small" :color="{color: 'var(--primary-color-opacity-5)', borderColor: 'var(--primary-color-opacity-3)', textColor: 'var(--primary-color)'}">
-                      相似度:{{ result.score.toFixed(2) }}
+                      Similarity:{{ result.score.toFixed(2) }}
                       <template #icon>
                         <n-icon class="iconfont icon-brightness1" />
                       </template>
@@ -257,8 +257,8 @@
           } else {
             selectedReposId.value = ''
             dialogConfirm(dialog, {
-              title: '创建知识库确认',
-              content: '您还没有创建知识库，是否去创建一个知识库？',
+              title: 'Create Knowledge Base',
+              content: 'You have not created a knowledge base yet. Would you like to create one?',
               type: 'warning',
               onPositiveClick: (e, dialog) => {
                 router.push(`/main/repository`)
@@ -288,10 +288,10 @@
       const resultList = ref([])
       const onSearch = (text) => {
         if (reposList.value.length === 0) {
-          message.error('请先创建知识库')
+          message.error('Please create a knowledge base first')
           dialogConfirm(dialog, {
-            title: '创建知识库确认',
-            content: '您还没有创建知识库，是否去创建一个知识库？',
+            title: 'Create Knowledge Base',
+            content: 'You have not created a knowledge base yet. Would you like to create one?',
             type: 'warning',
             onPositiveClick: (e, dialog) => {
               router.push(`/main/repository`)

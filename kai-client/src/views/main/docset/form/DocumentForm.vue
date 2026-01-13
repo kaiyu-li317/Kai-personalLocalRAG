@@ -9,11 +9,11 @@
     :rules="formRules"
     require-mark-placement="right-hanging"
   >
-    <n-form-item label="标题" path="docTtl">
-      <n-input v-model:value="formData.docTtl" placeholder="请输入文档标题" />
+    <n-form-item label="Title" path="docTtl">
+      <n-input v-model:value="formData.docTtl" placeholder="Please enter document title" />
     </n-form-item>
-    <n-form-item label="类型" path="docTyp">
-      <n-select v-model:value="formData.docTyp" :options="docTypOptions" :disabled="doc" placeholder="请选择文档类型" />
+    <n-form-item label="Type" path="docTyp">
+      <n-select v-model:value="formData.docTyp" :options="docTypOptions" :disabled="doc" placeholder="Please select document type" />
     </n-form-item>
   </n-form>
 </template>
@@ -47,7 +47,7 @@ export default defineComponent({
       docTtl: [
         {
           required: true,
-          message: '文档标题必须填写',
+          message: 'Document title is required',
           trigger: [ 'blur' ]
         }
       ]

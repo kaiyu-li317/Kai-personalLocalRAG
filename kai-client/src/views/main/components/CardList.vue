@@ -69,7 +69,7 @@
           <template v-if="item[descKey]">
             {{ item[descKey] }}
           </template>
-          <template v-else>这个知识库还没有介绍~</template>
+          <template v-else>No description for this knowledge base yet</template>
         </n-ellipsis>
         <n-icon class="iconbg iconfont-kb icon-scatter"></n-icon>
         <template #action>
@@ -100,17 +100,17 @@
       idKey: 'id',
       titleKey: 'title',
       descKey: 'desc',
-      defaultDesc: '还没有介绍~'
+      defaultDesc: 'No description yet'
     },
     setup(props, context) {
       const options = [
         {
-          label: '编辑',
+          label: 'Edit',
           key: 'edit',
           icon: () => renderIconfontIcon('iconfont icon-pencil')
         },
         {
-          label: '删除',
+          label: 'Delete',
           key: 'delete',
           icon: () => renderIconfontIcon('iconfont icon-delete')
         }

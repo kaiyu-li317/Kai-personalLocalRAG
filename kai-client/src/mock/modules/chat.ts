@@ -1,11 +1,11 @@
 import Mock from 'mockjs'
-const { Random } = Mock as any // 导出随机函数
+const { Random } = Mock as any // Export random functions
 
 const success = (data: any) => {
   return {
     code: 200,
     data,
-    msg: '操作成功',
+    msg: 'Operation successful',
     success: true
   }
 }
@@ -20,20 +20,20 @@ const successPage = (data: any) => {
   }
 }
 
-// 新增会话信息
+// Add chat session
 const addChat = (req) => {
   return success(null)
 }
-// 修改会话信息
+// Edit chat session
 const editChat = (req) => {
   return success(null)
 }
-// 删除会话信息
+// Delete chat session
 const removeChat = (req) => {
   return success(null)
 }
 
-// 查询会话列表
+// Query chat list
 const chatList = (req) => {
   return success([
     { chatId: Random.guid(), reposId: Random.guid(), chatTtl: Random.string(25) },
@@ -41,7 +41,7 @@ const chatList = (req) => {
   ])
 }
 
-// 查询会话列表
+// Query message list
 const messageList = (req) => {
   return success([
     { mesgId: Random.guid(), chatId: Random.guid(), mesgCntnt: Random.string(50), mesgTyp: 'text', crtRole: 'sys' },

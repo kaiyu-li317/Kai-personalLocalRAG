@@ -173,8 +173,8 @@
       }
       const onRemoveCatalog = (row) => {
         dialogConfirm(dialog, {
-          title: '删除确认',
-          content: '删除后目录不可恢复',
+          title: 'Delete Confirmation',
+          content: 'Catalog cannot be recovered after deletion',
           type: 'warning',
           loading: false,
           onPositiveClick: (e, dialog) => {

@@ -98,14 +98,14 @@
   <n-layout class="kb-docset-docs" has-sider>
     <n-layout-sider :native-scrollbar="false">
       <div class="title">
-        <n-icon class="iconfont-kb icon-docset"></n-icon>文档列表({{ documentList.length }})
+        <n-icon class="iconfont-kb icon-docset"></n-icon>Documents ({{ documentList.length }})
       </div>
       <n-button-group class="option" v-if="authEdit">
         <n-button round @click="addDocument">
           <template #icon>
             <n-icon class="iconfont icon-pluscircle"></n-icon>
           </template>
-          新文档
+          New Document
         </n-button>
       </n-button-group>
       <n-tree class="tree" block-line block-node :style="`${authEdit ? 'margin-top: 20px;' : ''}`"
@@ -129,19 +129,19 @@
           <n-button round @click="editMode = false" :loading="saving">
             <template #icon>
               <n-icon class="iconfont icon-undovariant"></n-icon>
-            </template>退出
+            </template>Exit
           </n-button>
           <n-button round @click="saveContent" :loading="saving">
             <template #icon>
               <n-icon class="iconfont icon-contentsave"></n-icon>
-            </template>保存
+            </template>Save
           </n-button>
         </n-button-group>
         <n-button-group v-else>
           <n-button round @click="editMode = true">
             <template #icon>
               <n-icon class="iconfont icon-tableedit"></n-icon>
-            </template>编辑
+            </template>Edit
           </n-button>
         </n-button-group>
       </p>
@@ -257,9 +257,9 @@
       }
 
       const addDocument = (p) => {
-        let docPid = p.docId // 如果不为空则是创建子文档
+        let docPid = p.docId // Create child document if not empty
         dialogCreate(dialog, {
-          title: `新增${docPid ? '子' : ''}文档`,
+          title: `Create ${docPid ? 'Child ' : ''}Document`,
           style: 'width: 40%;',
           maskClosable: false,
           icon: () => renderIconfontIcon('iconfont-kb icon-document', { size: '28px' }),
@@ -297,32 +297,32 @@
       }
       const docOptions = [
         {
-          label: '发布',
+          label: 'Publish',
           key: 'tokb',
           icon: () => renderIconfontIcon('iconfont icon-send'),
           label: () => {
             return h('span', {
-              title: '发布到知识库'
-            }, '发布')
+              title: 'Publish to Knowledge Base'
+            }, 'Publish')
           }
         },
         {
-          label: '新增',
+          label: 'Add',
           key: 'child',
           icon: () => renderIconfontIcon('iconfont icon-filedocumentbox'),
           label: () => {
             return h('span', {
-              title: '新增子文档'
-            }, '新增')
+              title: 'Add Child Document'
+            }, 'Add')
           }
         },
         {
-          label: '编辑',
+          label: 'Edit',
           key: 'edit',
           icon: () => renderIconfontIcon('iconfont icon-pencil')
         },
         {
-          label: '删除',
+          label: 'Delete',
           key: 'delete',
           icon: () => renderIconfontIcon('iconfont icon-delete')
         }
@@ -348,9 +348,9 @@
         )
       }
       const onDocOptionSelect = (key, doc) => {
-        if (key === 'tokb') { // 发布到知识库
+        if (key === 'tokb') { // Publish to knowledge base
           dialogCreate(dialog, {
-            title: `请选择知识库`,
+            title: `Select Knowledge Base`,
             style: 'width: 40%;',
             maskClosable: false,
             icon: () => renderIconfontIcon('iconfont-kb icon-team', { size: '28px' }),
@@ -374,7 +374,7 @@
           })
         } else if (key === 'edit') {
           dialogCreate(dialog, {
-            title: `修改文档`,
+            title: `Edit Document`,
             style: 'width: 40%;',
             maskClosable: false,
             icon: () => renderIconfontIcon('iconfont-kb icon-doc1', { size: '28px' }),
@@ -392,8 +392,8 @@
           })
         } else if (key === 'delete') {
           dialogConfirm(dialog, {
-            title: '删除',
-            content: '确定删除该文档么？',
+            title: 'Delete',
+            content: 'Are you sure you want to delete this document?',
             type: 'warning',
             onPositiveClick: (e, dialog) => {
               dialog.loading = true

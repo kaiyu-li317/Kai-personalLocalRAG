@@ -1,6 +1,6 @@
 import { ref, onBeforeUnmount, computed } from 'vue'
 import { darkTheme } from 'naive-ui'
-import { zhCN, dateZhCN } from 'naive-ui'
+import { enUS, dateEnUS } from 'naive-ui'
 import { THEME_COLOR_KEY, DEFAULT_THEME_COLOR, TEME_NAVIGATION_KEY, DEFAULT_THEME_NAVIGATION } from '@/libs/enum'
 import { localRead, modifyColorAlpha, similarColors } from '@/libs/tools'
 import EventBus from '@/libs/eventbus'
@@ -96,6 +96,6 @@ export const useTheme = () => {
     EventBus.off('on-theme-navigation-change', onNaviTypeChange)
   })
   return {
-    themeOverrides, themeType, naviType, zhCN, dateZhCN
+    themeOverrides, themeType, naviType, enUS, dateEnUS
   }
 }

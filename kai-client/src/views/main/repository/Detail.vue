@@ -36,7 +36,7 @@
 
   const menuOptions = [
     {
-      label: '数据集',
+      label: 'Dataset',
       key: 'dataset',
       icon: () => renderIconfontIcon('iconfont-kb icon-dataset1')
     },
@@ -46,7 +46,7 @@
       icon: () => renderIconfontIcon('iconfont-kb icon-qa')
     },
     {
-      label: '设置',
+      label: 'Settings',
       key: 'setting',
       icon: () => renderIconfontIcon('iconfont icon-settings')
     }
@@ -70,7 +70,7 @@
       const reposInfo = ref({})
       const authEdit = computed(() => reposInfo.value['optAuth'] === 'alter')
       const inited = ref(false)
-      // 初始化知识库信息
+      // Initialize knowledge base info
       const initReposInfo = () => {
         proxy.$api.get(`/knb/repository/${route.query.id}`).then(res => {
           reposInfo.value = res.data || {}

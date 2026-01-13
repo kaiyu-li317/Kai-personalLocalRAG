@@ -1,29 +1,29 @@
 import Mock from 'mockjs'
-const { Random } = Mock as any // 导出随机函数
+const { Random } = Mock as any // Export random functions
 
 const success = (data: any) => {
   return {
     code: 200,
     data,
-    msg: '操作成功',
+    msg: 'Operation successful',
     success: true
   }
 }
 
-// 新增知识库信息
+// Add repository
 const addRepository = (req) => {
   return success(null)
 }
-// 修改知识库信息
+// Edit repository
 const editRepository = (req) => {
   return success(null)
 }
-// 删除知识库信息
+// Delete repository
 const removeRepository = (req) => {
   return success(null)
 }
 
-// 查询知识库列表
+// Query repository list
 const repositoryList = (req) => {
   return success([
     { reposId: Random.guid(), reposNm: Random.string(10), reposDesc: Random.string(100) },

@@ -4,7 +4,7 @@
 <template>
   <n-cascader class="kb-flow-node-variable" size="small" clearable check-strategy="child"
     v-model:value="attr.attrVal"
-    placeholder="请选择模型"
+    placeholder="Please select a model"
     expand-trigger="hover"
     :options="llmOptions"
   />

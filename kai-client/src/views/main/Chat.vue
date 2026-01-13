@@ -148,19 +148,19 @@
         <div class="kb-chat-info">
           <n-icon class="iconfont-kb icon-knowledge"></n-icon>
           <n-dropdown trigger="hover" :options="reposOptions" :on-select="onReposSelect">
-            <span title="切换对话知识库">{{ selectedRepos.reposNm }}</span>
+            <span title="Switch knowledge base">{{ selectedRepos.reposNm }}</span>
           </n-dropdown>
           <n-icon class="iconfont icon-unfoldmore"></n-icon>
         </div>
         <div class="kb-chat-option">
-          <n-button circle @click="turnToRepos" title="知识库详情"><n-icon class="iconfont icon-undovariant"></n-icon></n-button>
+          <n-button circle @click="turnToRepos" title="Knowledge base details"><n-icon class="iconfont icon-undovariant"></n-icon></n-button>
           <n-button round @click="addChat">
             <template #icon>
               <n-icon class="iconfont-kb icon-chat-add"></n-icon>
             </template>
-            新对话
+            New Chat
           </n-button>
-          <n-button circle @click="clearChat" title="清空对话"><n-icon class="iconfont icon-broom"></n-icon></n-button>
+          <n-button circle @click="clearChat" title="Clear chats"><n-icon class="iconfont icon-broom"></n-icon></n-button>
         </div>
         <n-list class="kb-chat-list" :show-divider="false">
           <n-list-item v-for="chat in chatList" :key="chat.chatId" @click="onChatSelect(chat.chatId)" :class="selectedChatId === chat.chatId ? 'selected' : ''">
@@ -206,7 +206,7 @@
     setup() {
       const dialog = useDialog()
       const message = useMessage()
-      // 获取当前组件的实例、上下文来操作router和vuex等。相当于this
+      // Get current component instance and context for router and vuex operations
 	    const { proxy, ctx } = getCurrentInstance()
       const selectedReposId = ref('')
       const selectedChatId = ref('')
@@ -254,8 +254,8 @@
           } else {
             selectedReposId.value = ''
             dialogConfirm(dialog, {
-              title: '创建知识库确认',
-              content: '您还没有创建知识库，是否去创建一个知识库？',
+              title: 'Create Knowledge Base',
+              content: 'You have not created a knowledge base yet. Would you like to create one?',
               type: 'warning',
               onPositiveClick: (e, dialog) => {
                 router.push(`/main/repository`)
@@ -272,10 +272,10 @@
       }
       const addChat = () => {
         if (reposList.value.length === 0) {
-          message.error('请先创建知识库')
+          message.error('Please create a knowledge base first')
           dialogConfirm(dialog, {
-            title: '创建知识库确认',
-            content: '您还没有创建知识库，是否去创建一个知识库？',
+            title: 'Create Knowledge Base',
+            content: 'You have not created a knowledge base yet. Would you like to create one?',
             type: 'warning',
             onPositiveClick: (e, dialog) => {
               router.push(`/main/repository`)
@@ -283,7 +283,7 @@
           })
           return
         }
-        proxy.$api.post('/knb/chat', { reposId: selectedReposId.value, chatTtl: '新对话' }).then(res => {
+        proxy.$api.post('/knb/chat', { reposId: selectedReposId.value, chatTtl: 'New Chat' }).then(res => {
           // initChatList(selectedReposId.value)
           chatList.value.unshift(res.data)
           selectedChatId.value = res.data.chatId
@@ -292,7 +292,7 @@
         })
         /*
         dialogCreate(dialog, {
-          title: `新增对话`,
+          title: `New Chat`,
           style: 'width: 40%;',
           maskClosable: false,
           icon: () => renderIconfontIcon('iconfont-kb icon-chat-add', { size: '28px' }),
@@ -311,8 +311,8 @@
       }
       const clearChat = () => {
         dialogConfirm(dialog, {
-          title: '确认',
-          content: '确认清空知识库下的对话记录？',
+          title: 'Confirm',
+          content: 'Are you sure you want to clear all chat records in this knowledge base?',
           type: 'warning',
           onPositiveClick: (e, dialog) => {
             dialog.loading = true
@@ -329,12 +329,12 @@
       }
       const chatOptions = [
         {
-          label: '编辑',
+          label: 'Edit',
           key: 'edit',
           icon: () => renderIconfontIcon('iconfont icon-pencil')
         },
         {
-          label: '删除',
+          label: 'Delete',
           key: 'delete',
           icon: () => renderIconfontIcon('iconfont icon-delete')
         }
@@ -342,7 +342,7 @@
       const onChatOptionSelect = (key, chat) => {
         if (key === 'edit') {
           dialogCreate(dialog, {
-            title: `修改对话`,
+            title: `Edit Chat`,
             style: 'width: 40%;',
             maskClosable: false,
             icon: () => renderIconfontIcon('iconfont-kb icon-chat1', { size: '28px' }),
@@ -360,8 +360,8 @@
           })
         } else if (key === 'delete') {
           dialogConfirm(dialog, {
-            title: '删除',
-            content: '确定删除该对话么？',
+            title: 'Delete',
+            content: 'Are you sure you want to delete this chat?',
             type: 'warning',
             onPositiveClick: (e, dialog) => {
               dialog.loading = true
@@ -390,7 +390,7 @@
       }
       const onSendFirstMessage = (message) => {
         let chat = chatList.value.find(chat => chat.chatId === selectedChatId.value)
-        if (chat && chat.chatTtl === '新对话') {
+        if (chat && chat.chatTtl === 'New Chat') {
           chat.chatTtl = message
           proxy.$api.put('/knb/chat', chat).then(res => {
           }).catch(err => {

@@ -156,8 +156,8 @@
       }
       const onRemoveTriplet = (row) => {
         dialogConfirm(dialog, {
-          title: '删除确认',
-          content: '确定删除该图谱么？',
+          title: 'Delete Confirmation',
+          content: 'Are you sure you want to delete this graph?',
           type: 'warning',
           onPositiveClick: (e, dialog) => {
             dialog.loading = true

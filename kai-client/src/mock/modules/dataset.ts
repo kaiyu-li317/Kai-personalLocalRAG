@@ -1,11 +1,11 @@
 import Mock from 'mockjs'
-const { Random } = Mock as any // 导出随机函数
+const { Random } = Mock as any // Export random functions
 
 const success = (data: any) => {
   return {
     code: 200,
     data,
-    msg: '操作成功',
+    msg: 'Operation successful',
     success: true
   }
 }
@@ -20,7 +20,7 @@ const successPage = (data: any) => {
   }
 }
 
-// 查询知识库列表
+// Query dataset list
 const datasetList = (req) => {
   let data = Array.from({ length: Random.integer(5, 55) }).map((_, index) => ({
     dtsetId: Random.guid(), reposId: Random.string(10), dtsetNm: Random.string(10), dtsetTyp: 'text', idxSts: '01', fileTyp: 'pdf'

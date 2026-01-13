@@ -36,7 +36,7 @@
       <n-back-top :to="`#c${chatId}`" :right="24" :bottom="32" />
     </n-scrollbar>
     <div class="kb-chat-input">
-      <n-input v-model:value="inputValue" autofocus placeholder="输入问题，发送 [Enter]/换行 [Ctrl + Enter]" type="textarea" size="large" :on-input="onInputChange" @keydown="onInputKeyDown"
+      <n-input v-model:value="inputValue" autofocus placeholder="Enter your question, Send [Enter] / New line [Ctrl + Enter]" type="textarea" size="large" :on-input="onInputChange" @keydown="onInputKeyDown"
         :autosize="{
           minRows: 1,
           maxRows: 5
@@ -59,7 +59,7 @@
     },
     props: [ 'chatId', 'reposId', 'on-send-message' ],
     setup(props, context) {
-      // 获取当前组件的实例、上下文来操作router和vuex等。相当于this
+      // Get current component instance and context for router and vuex operations
 	    const { proxy, ctx } = getCurrentInstance()
       const reposId = props.reposId
       const chatId = props.chatId
@@ -86,7 +86,7 @@
           if (messageList.value.length === 0) {
             initQuessQuestList()
             messageList.value.push(create_new_message({
-              mesgCntnt: '您好，我是KAI，有什么可以帮到您？',
+              mesgCntnt: 'Hello, I am KAI. How can I help you?',
               mesgTyp: 'text',
               crtRole: 'sys',
             }))
@@ -119,7 +119,7 @@
           if (messageList.value.filter(m => m.crtRole === 'usr').length === 0) {
             context.emit('on-send-first-message', inputValue.value)
           }
-          let history = messageList.value.slice(-20) // 默认20条历史数据，后台根据配置截取
+          let history = messageList.value.slice(-20) // Default 20 history records, backend will truncate based on config
           messageList.value.push(mesg)
           let childMesg = ref(create_new_message({
             mesgTyp: 'text',
@@ -242,7 +242,7 @@
           } else if (type === 'chat_message_quote') {
             childMesg.value['quotes'] = message.data['quotes']
           } else if (type === 'chat_message_error') {
-            childMesg.value['error'] = message.data || '未知错误，暂时无法回答'
+            childMesg.value['error'] = message.data || 'Unknown error, unable to respond at the moment'
           }
         } catch (error) {
           console.error(error)

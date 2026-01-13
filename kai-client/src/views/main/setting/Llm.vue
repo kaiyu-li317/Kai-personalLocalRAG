@@ -173,13 +173,13 @@
 <template>
   <div class="llm-settings">
     <div class="page-header">
-      <div class="page-title">模型设置</div>
-      <div class="page-desc">配置 Ollama 模型服务，选择默认使用的模型</div>
+      <div class="page-title">Model Settings</div>
+      <div class="page-desc">Configure Ollama model service and select the default model</div>
     </div>
 
-    <!-- 模型首选项 -->
+    <!-- Model Preference -->
     <div class="section">
-      <div class="section-title">默认模型</div>
+      <div class="section-title">Default Model</div>
       <div class="section-content">
         <div class="preference-card">
           <model-preference ref="mpRef" />
@@ -187,9 +187,9 @@
       </div>
     </div>
 
-    <!-- Ollama 配置 -->
+    <!-- Ollama Configuration -->
     <div class="section">
-      <div class="section-title">Ollama 服务</div>
+      <div class="section-title">Ollama Service</div>
       <div class="section-content">
         <div v-if="ollamaPrvd" class="ollama-card">
           <div class="ollama-header">
@@ -210,19 +210,19 @@
           <div class="ollama-actions">
             <button class="action-btn primary" @click="onSyncModels">
               <n-icon class="iconfont icon-sync"></n-icon>
-              同步模型
+              Sync Models
             </button>
             <button class="action-btn secondary" @click="onAddModel(ollamaPrvd)">
               <n-icon class="iconfont icon-plus"></n-icon>
-              添加模型
+              Add Model
             </button>
             <button class="action-btn secondary" @click="onPrvdSetting(ollamaPrvd)">
               <n-icon class="iconfont icon-settings"></n-icon>
-              服务配置
+              Service Config
             </button>
           </div>
         </div>
-        <div v-else class="empty-state">未找到 Ollama 配置</div>
+        <div v-else class="empty-state">Ollama configuration not found</div>
       </div>
     </div>
   </div>
@@ -270,7 +270,7 @@
 
       const onPrvdSetting = (prvd) => {
         dialogCreate(dialog, {
-          title: '服务配置',
+          title: 'Service Configuration',
           style: 'width: 440px;',
           maskClosable: false,
           icon: () => renderIconfontIcon('iconfont icon-settings', { size: '20px' }),
@@ -289,7 +289,7 @@
       
       const onAddModel = (prvd) => {
         dialogCreate(dialog, {
-          title: '添加模型',
+          title: 'Add Model',
           style: 'width: 440px;',
           maskClosable: false,
           icon: () => renderIconfontIcon('iconfont icon-plus', { size: '20px' }),
@@ -316,7 +316,7 @@
         proxy.$api.post('/sys/model/ollama/sync').then(res => {
           const { synced, total } = res.data || {}
           if (synced > 0) {
-            message.success(`已同步 ${synced} 个新模型`)
+            message.success(`Synced ${synced} new model(s)`)
             if (modelListRef.value) {
               modelListRef.value.initModelList()
             }
@@ -324,11 +324,11 @@
               mpRef.value.resetSelector()
             }
           } else {
-            message.info(`Ollama 共有 ${total} 个模型，均已添加`)
+            message.info(`Ollama has ${total} model(s), all already added`)
           }
         }).catch(err => {
           console.error(err)
-          message.error('同步失败: ' + (err.msg || err.message))
+          message.error('Sync failed: ' + (err.msg || err.message))
         })
       }
 

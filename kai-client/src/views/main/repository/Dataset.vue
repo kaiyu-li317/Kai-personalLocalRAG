@@ -70,17 +70,17 @@
     <div style="height: 100%;" v-show="!selectedId">
       <div class="kb-dataset-header">
         <div class="title">
-          <n-icon class="iconfont-kb icon-dataset"></n-icon>数据集({{ pagination.itemCount }})
+          <n-icon class="iconfont-kb icon-dataset"></n-icon>Dataset ({{ pagination.itemCount }})
         </div>
         <n-space class="option">
-          <n-input v-model:value="inputValue" placeholder="输入数据集名称搜索" autofocus :on-input="onInputChange">
+          <n-input v-model:value="inputValue" placeholder="Search datasets by name" autofocus :on-input="onInputChange">
             <template #prefix>
               <n-icon class="iconfont icon-magnify"></n-icon>
             </template>
           </n-input>
           <!-- <n-button v-if="authEdit" type="primary" @click="onImportDocument"><n-icon class="iconfont icon-import"></n-icon>&nbsp;导入</n-button> -->
           <n-dropdown v-if="authEdit" trigger="hover" :options="createOptions" @select="onCreateSelect">
-            <n-button type="primary"><n-icon class="iconfont icon-import"></n-icon>&nbsp;创建</n-button>
+            <n-button type="primary"><n-icon class="iconfont icon-import"></n-icon>&nbsp;Create</n-button>
           </n-dropdown>
         </n-space>
       </div>
@@ -153,7 +153,7 @@
         pageCount: 1,
         pageSize: 10,
         prefix ({ itemCount }) {
-          return `总数 ${itemCount}`
+          return `Total ${itemCount}`
         },
         orderName: '',
         orderValue: ''
@@ -220,14 +220,14 @@
       const onInputChange = _.debounce((value) => {
         onInitDatasetList(1)
       }, 500)
-      // 打开导入文件表单
+      // Open document import form
       const onImportDocument = () => {
         dialogCreate(dialog, {
-          title: `导入文档`,
+          title: `Import Document`,
           style: 'width: 50%;',
           maskClosable: false,
           negativeText: '',
-          positiveText: '导入',
+          positiveText: 'Import',
           icon: () => renderIconfontIcon('iconfont-kb icon-document1', { size: '28px' }),
           onPositiveClick: (data, e, $dialog) => {
             if (data) {
@@ -245,7 +245,7 @@
       }
       const onEditDataset = (row) => {
         dialogCreate(dialog, {
-          title: `修改数据集`,
+          title: `Edit Dataset`,
           style: 'width: 50%;',
           maskClosable: false,
           icon: () => renderIconfontIcon('iconfont-kb icon-knowledge', { size: '28px' }),
@@ -264,8 +264,8 @@
       }
       const onRemoveDataset = (row) => {
         dialogConfirm(dialog, {
-          title: '删除确认',
-          content: '删除后数据集不可恢复',
+          title: 'Delete Confirmation',
+          content: 'Dataset cannot be recovered after deletion',
           type: 'warning',
           loading: false,
           onPositiveClick: (e, dialog) => {
@@ -284,7 +284,7 @@
 
       const onRebuildIndex = (row) => {
         dialogCreate(dialog, {
-          title: `重建索引`,
+          title: `Rebuild Index`,
           style: 'width: 50%;',
           maskClosable: false,
           icon: () => renderIconfontIcon('iconfont-kb icon-document1', { size: '28px' }),
@@ -308,25 +308,25 @@
       
       const rowOptions = ref([
         {
-          label: '重建索引',
+          label: 'Rebuild Index',
           key: 'reindex',
           icon: () => renderIconfontIcon('iconfont-kb icon-vector'),
           disabled: !authEdit
         },
         {
-          label: '分段设置',
+          label: 'Chunk Settings',
           key: 'chunk',
           icon: () => renderIconfontIcon('iconfont-kb icon-dataset1'),
           disabled: !authEdit
         },
         {
-          label: '编辑',
+          label: 'Edit',
           key: 'edit',
           icon: () => renderIconfontIcon('iconfont icon-pencil'),
           disabled: !authEdit
         },
         {
-          label: '删除',
+          label: 'Delete',
           key: 'delete',
           icon: () => renderIconfontIcon('iconfont icon-delete'),
           disabled: !authEdit
@@ -335,11 +335,11 @@
 
       const onImportLink = () => {
         dialogCreate(dialog, {
-          title: `静态网页地址`,
+          title: `Static Web Page URL`,
           style: 'width: 70%;',
           maskClosable: false,
           negativeText: '',
-          positiveText: '导入',
+          positiveText: 'Import',
           icon: () => renderIconfontIcon('iconfont-kb icon-link1', { size: '28px' }),
           onPositiveClick: (data, e, $dialog) => {
             if (data) {
@@ -358,11 +358,11 @@
 
       const createOptions = ref([
         {
-          label: '导入文档',
+          label: 'Import Document',
           key: 'document',
           icon: () => renderIconfontIcon('iconfont-kb icon-document1')
         }, {
-          label: '网页链接',
+          label: 'Web Link',
           key: 'link',
           icon: () => renderIconfontIcon('iconfont-kb icon-link1')
         }
@@ -379,12 +379,12 @@
       const onUpdateBuildStatus = (row, buildKey, buildValue) => {
         let idxSts = row.idxSts
         if (idxSts !== 'ready') {
-          message.warning('索引状态非就绪，无法构建增强索引')
+          message.warning('Index status is not ready, cannot build enhanced index')
           return
         }
         dialogConfirm(dialog, {
-          title: '确认',
-          content: '这将花费额外的Token，确定构建增强索引么？',
+          title: 'Confirm',
+          content: 'This will consume additional tokens. Are you sure you want to build enhanced index?',
           type: 'warning',
           loading: false,
           onPositiveClick: (e, dialog) => {
@@ -410,7 +410,7 @@
 
       const showIndexError = (dtsetId, type) => {
         dialogCreate(dialog, {
-          title: `错误信息`,
+          title: `Error Information`,
           style: 'width: 50%;',
           maskClosable: false,
           negativeText: '',
@@ -428,8 +428,8 @@
           let status = row[key]
           let title = ''
           if (authEdit) {
-            if (status === 'nobd') { // 不构建的状态下可以修改为构建，即新增，后台任务自动跑批
-              title = `点击构建${title}索引`
+            if (status === 'nobd') { // Can change to build under non-build status, i.e., create new, background task runs batch
+              title = `Click to build ${title} index`
             }
           }
           let color = {color: 'var(--primary-color-opacity-5)', borderColor: 'var(--primary-color-opacity-5)', textColor: 'var(--primary-color-opacity-2)'}
@@ -449,7 +449,7 @@
                 if (!authEdit) {
                   return
                 }
-                if (status === 'nobd') { // 不构建的状态下可以修改为构建，即新增，后台任务自动跑批
+                if (status === 'nobd') { // Can change to build under non-build status, i.e., create new, background task runs batch
                   onUpdateBuildStatus(row, key, 'new')
                 } else if (status === 'error') {
                   showIndexError(row.dtsetId, statusKeyTypeMap[key])
@@ -470,7 +470,7 @@
                       }
                     }
                   ),
-                  DATASET_INDEX_STATUS_TYPE[status] || '未知'
+                  DATASET_INDEX_STATUS_TYPE[status] || 'Unknown'
                 ]
               }
             })
@@ -479,7 +479,7 @@
       }
 
       const columns = ref([
-        { title: '名称', key: 'dtsetNm', minWidth: 250, render(row) {
+        { title: 'Name', key: 'dtsetNm', minWidth: 250, render(row) {
           return h(
             NSpace,
             {},
@@ -488,7 +488,7 @@
                 return [
                   h('span', {
                     class: 'title',
-                    title: '查看数据集内容',
+                    title: 'View dataset content',
                     onClick: () => {
                       selectedId.value = row.dtsetId
                       selectedNm.value = row.dtsetNm
@@ -499,11 +499,11 @@
             })
           }
         },
-        { title: '类型', key: 'fileTyp', align: 'center', width: 60, render(row) {
+        { title: 'Type', key: 'fileTyp', align: 'center', width: 60, render(row) {
           return h(
             NIcon,
             {
-              title: `${row.fileTyp}${authEdit ? ' 点击预览' : ''}`,
+              title: `${row.fileTyp}${authEdit ? ' Click to preview' : ''}`,
               size: '22px',
               class: `kb-dataset-filetype ${FILE_TYPE_ICON_MAP[row.fileTyp] || 'iconfont icon-file'}`,
               onClick: () => {
@@ -514,7 +514,7 @@
             }
           )
         } },
-        { title: '大小', key: 'fileSize', align: 'center', width: 85, render(row) {
+        { title: 'Size', key: 'fileSize', align: 'center', width: 85, render(row) {
           let size = row.fileSize // 字节
           let res = ''
           if (size > 0) {
@@ -528,8 +528,8 @@
             }
           }, res)
         } },
-        { title: '状态', key: 'enbSts', align: 'center', titleAlign: 'left', width: 100, render(row) {
-          let label = DATASET_ENABLE_STATUS_TYPE[row.enbSts] || '未知'
+        { title: 'Status', key: 'enbSts', align: 'center', titleAlign: 'left', width: 100, render(row) {
+          let label = DATASET_ENABLE_STATUS_TYPE[row.enbSts] || 'Unknown'
           return h(
             NSwitch,
             {
@@ -556,16 +556,16 @@
             })
           }
         },
-        createBuildStatusColumn('索引', 'idxSts'),
+        createBuildStatusColumn('Index', 'idxSts'),
         {
-          title: '增强索引', key: 'enhance', align: 'center',
+          title: 'Enhanced Index', key: 'enhance', align: 'center',
           children: [
-            createBuildStatusColumn('摘要', 'prcsSts'),
+            createBuildStatusColumn('Summary', 'prcsSts'),
             createBuildStatusColumn('Q&A', 'qaSts'),
-            createBuildStatusColumn('图谱', 'tpltSts'),
+            createBuildStatusColumn('Graph', 'tpltSts'),
           ]
         },
-        { title: '操作', key: 'option', fixed: 'right', align: 'center', width: 100, render(row) {
+        { title: 'Actions', key: 'option', fixed: 'right', align: 'center', width: 100, render(row) {
           let options = deepCopy(rowOptions.value)
           if (authEdit) {
             options.forEach(option => {

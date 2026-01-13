@@ -9,14 +9,14 @@
     :rules="formRules"
     require-mark-placement="right-hanging"
   >
-    <n-form-item label="主语" path="tpltSbjct">
-      <n-input v-model:value="formData.tpltSbjct" placeholder="请输入主语" />
+    <n-form-item label="Subject" path="tpltSbjct">
+      <n-input v-model:value="formData.tpltSbjct" placeholder="Please enter subject" />
     </n-form-item>
-    <n-form-item label="谓语" path="tpltPrdct">
-      <n-input v-model:value="formData.tpltPrdct" placeholder="请输入谓语" />
+    <n-form-item label="Predicate" path="tpltPrdct">
+      <n-input v-model:value="formData.tpltPrdct" placeholder="Please enter predicate" />
     </n-form-item>
-    <n-form-item label="宾语" path="tpltObjct">
-      <n-input v-model:value="formData.tpltObjct" placeholder="请输入宾语" />
+    <n-form-item label="Object" path="tpltObjct">
+      <n-input v-model:value="formData.tpltObjct" placeholder="Please enter object" />
     </n-form-item>
   </n-form>
 </template>
@@ -44,9 +44,9 @@ export default defineComponent({
     const formData = ref(JSON.parse(JSON.stringify(triplet)))
     formData.value.tpltSrc = 'hm'
     const formRules = ref({
-      tpltSbjct: [{ required: true, message: '主语必须填写', trigger: [ 'blur' ] }],
-      tpltPrdct: [{ required: true, message: '谓语必须填写', trigger: [ 'blur' ] }],
-      tpltObjct: [{ required: true, message: '宾语必须填写', trigger: [ 'blur' ] }]
+      tpltSbjct: [{ required: true, message: 'Subject is required', trigger: [ 'blur' ] }],
+      tpltPrdct: [{ required: true, message: 'Predicate is required', trigger: [ 'blur' ] }],
+      tpltObjct: [{ required: true, message: 'Object is required', trigger: [ 'blur' ] }]
     })
 
     const validate = () => {

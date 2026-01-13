@@ -9,8 +9,8 @@
     :rules="formRules"
     require-mark-placement="right-hanging"
   >
-    <n-form-item label="名称" path="ctlgNm">
-      <n-input v-model:value="formData.ctlgNm" placeholder="请输入目录名称" />
+    <n-form-item label="Name" path="ctlgNm">
+      <n-input v-model:value="formData.ctlgNm" placeholder="Please enter catalog name" />
     </n-form-item>
   </n-form>
 </template>
@@ -39,7 +39,7 @@ export default defineComponent({
       ctlgNm: [
         {
           required: true,
-          message: '目录名称必须填写',
+          message: 'Catalog name is required',
           trigger: [ 'blur' ]
         }
       ]

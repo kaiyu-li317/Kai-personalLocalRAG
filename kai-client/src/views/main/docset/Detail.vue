@@ -33,12 +33,12 @@
 
   const menuOptions = [
     {
-      label: '文档',
+      label: 'Documents',
       key: 'document',
       icon: () => renderIconfontIcon('iconfont-kb icon-document')
     },
     {
-      label: '设置',
+      label: 'Settings',
       key: 'setting',
       icon: () => renderIconfontIcon('iconfont icon-settings')
     }

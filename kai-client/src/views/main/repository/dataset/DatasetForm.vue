@@ -9,13 +9,13 @@
     :rules="formRules"
     require-mark-placement="right-hanging"
   >
-    <n-form-item label="名称" path="dtsetNm">
-      <n-input v-model:value="formData.dtsetNm" placeholder="请输入数据集名称" />
+    <n-form-item label="Name" path="dtsetNm">
+      <n-input v-model:value="formData.dtsetNm" placeholder="Please enter dataset name" />
     </n-form-item>
-    <n-form-item label="目录" path="ctlgId">
+    <n-form-item label="Catalog" path="ctlgId">
       <n-tree-select
         v-model:value="formData.ctlgId"
-        placeholder="请选择目录"
+        placeholder="Please select catalog"
         :options="treeData"
         filterable
         key-field="ctlgId"
@@ -56,7 +56,7 @@ export default defineComponent({
       dtsetNm: [
         {
           required: true,
-          message: '数据集名称必须填写',
+          message: 'Dataset name is required',
           trigger: [ 'blur' ]
         }
       ]

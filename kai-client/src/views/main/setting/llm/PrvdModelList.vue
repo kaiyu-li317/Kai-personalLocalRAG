@@ -195,8 +195,8 @@ export default defineComponent({
 
     const onRemoveModel = (model) => {
       dialogConfirm(dialog, {
-        title: '确认',
-        content: '确定移除该模型么？',
+        title: 'Confirm',
+        content: 'Are you sure you want to remove this model?',
         type: 'warning',
         onPositiveClick: (e, dialog) => {
           dialog.loading = true

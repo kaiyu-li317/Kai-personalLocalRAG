@@ -45,32 +45,32 @@
       <n-list-item :class="editNkNm?'edit':''">
         <template #suffix>
           <n-button v-if="editNkNm" @click="onEditNkNm">
-            <n-icon class="iconfont icon-check" />&nbsp;提交
+            <n-icon class="iconfont icon-check" />&nbsp;Submit
           </n-button>
           <n-button v-else @click="editNkNm = !editNkNm">
-            <n-icon class="iconfont icon-pencil" />&nbsp;修改
+            <n-icon class="iconfont icon-pencil" />&nbsp;Edit
           </n-button>
         </template>
-        <n-thing title="昵称">
+        <n-thing title="Nickname">
           <div class="value">{{ userInfo.name }}</div>
-          <n-input class="input" v-model:value="nkNm" placeholder="请输入用户昵称"/>
+          <n-input class="input" v-model:value="nkNm" placeholder="Please enter nickname"/>
         </n-thing>
       </n-list-item>
       <n-list-item :class="editPwd?'edit':''">
         <template #suffix>
           <n-button v-if="editPwd" @click="onEditPwd">
-            <n-icon class="iconfont icon-check" />&nbsp;提交
+            <n-icon class="iconfont icon-check" />&nbsp;Submit
           </n-button>
           <n-button v-else @click="editPwd = !editPwd">
-            <n-icon class="iconfont icon-pencil" />&nbsp;修改
+            <n-icon class="iconfont icon-pencil" />&nbsp;Edit
           </n-button>
         </template>
-        <n-thing title="密码">
+        <n-thing title="Password">
           <div class="value">******</div>
           <div class="pwd-input input">
-            <n-input type="password" v-model:value="oldPwd" placeholder="请输入旧密码" />
-            <n-input type="password" v-model:value="newPwd" placeholder="请输入新密码" />
-            <n-input type="password" v-model:value="cfmPwd" placeholder="输入确认密码" />
+            <n-input type="password" v-model:value="oldPwd" placeholder="Enter old password" />
+            <n-input type="password" v-model:value="newPwd" placeholder="Enter new password" />
+            <n-input type="password" v-model:value="cfmPwd" placeholder="Confirm new password" />
           </div>
         </n-thing>
       </n-list-item>
@@ -98,7 +98,7 @@
 
       const onEditNkNm = () => {
         if (isEmpty(nkNm.value)) {
-          message.error('必须输入昵称')
+          message.error('Nickname is required')
           return
         }
         if (nkNm.value === userInfo.value.name) {
@@ -122,15 +122,15 @@
 
       const onEditPwd = () => {
         if (isEmpty(oldPwd.value) || isEmpty(newPwd.value) || isEmpty(cfmPwd.value)) {
-          message.error('请完整填写密码')
+          message.error('Please fill in all password fields')
           return
         }
         if (oldPwd.value === newPwd.value) {
-          message.error('新密码与旧密码不能一样')
+          message.error('New password cannot be the same as old password')
           return
         }
         if (newPwd.value !== cfmPwd.value) {
-          message.error('新密码与确认密码不一致')
+          message.error('New password and confirm password do not match')
           return
         }
 

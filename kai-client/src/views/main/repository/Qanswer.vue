@@ -175,8 +175,8 @@
       }
       const onRemoveQA = (row) => {
         dialogConfirm(dialog, {
-          title: '删除确认',
-          content: '确定删除该问答对么？',
+          title: 'Delete Confirmation',
+          content: 'Are you sure you want to delete this Q&A pair?',
           type: 'warning',
           onPositiveClick: (e, dialog) => {
             dialog.loading = true
@@ -193,13 +193,13 @@
       }
       const rowOptions = ref([
         {
-          label: '编辑',
+          label: 'Edit',
           key: 'edit',
           icon: () => renderIconfontIcon('iconfont icon-pencil'),
           disabled: !authEdit
         },
         {
-          label: '删除',
+          label: 'Delete',
           key: 'delete',
           icon: () => renderIconfontIcon('iconfont icon-delete'),
           disabled: !authEdit
@@ -212,9 +212,9 @@
         inputValue,
         pagination,
         columns: [
-          { title: '问题', key: 'qstQuest', minWidth: 300, fixed: 'left' },
-          { title: '答案', key: 'qstAswr', minWidth: 300 },
-          { title: '操作', key: 'option', align: 'center', width: 120, render(row) {
+          { title: 'Question', key: 'qstQuest', minWidth: 300, fixed: 'left' },
+          { title: 'Answer', key: 'qstAswr', minWidth: 300 },
+          { title: 'Actions', key: 'option', align: 'center', width: 120, render(row) {
             return h(
               NDropdown,
               {

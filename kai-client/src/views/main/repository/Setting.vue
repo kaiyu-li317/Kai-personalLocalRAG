@@ -38,35 +38,35 @@
       <n-list-item :class="editReposNm?'edit':''">
         <template #suffix>
           <n-button v-if="editReposNm" @click="onEditReposNm">
-            <n-icon class="iconfont icon-check" />&nbsp;提交
+            <n-icon class="iconfont icon-check" />&nbsp;Submit
           </n-button>
           <template v-else>
             <n-button v-if="authEdit" @click="editReposNm = !editReposNm">
-              <n-icon class="iconfont icon-pencil" />&nbsp;修改
+              <n-icon class="iconfont icon-pencil" />&nbsp;Edit
             </n-button>
           </template>
         </template>
-        <n-thing title="名称">
+        <n-thing title="Name">
           <div class="value">{{ reposInfo.reposNm }}</div>
-          <n-input class="input" v-model:value="reposNm" placeholder="请输入知识库名称"/>
+          <n-input class="input" v-model:value="reposNm" placeholder="Please enter knowledge base name"/>
         </n-thing>
       </n-list-item>
       <n-list-item :class="editReposDesc?'edit':''">
         <template #suffix>
           <n-button v-if="editReposDesc" @click="onEditReposDesc">
-            <n-icon class="iconfont icon-check" />&nbsp;提交
+            <n-icon class="iconfont icon-check" />&nbsp;Submit
           </n-button>
           <template v-else>
             <n-button v-if="authEdit" @click="editReposDesc = !editReposDesc">
-              <n-icon class="iconfont icon-pencil" />&nbsp;修改
+              <n-icon class="iconfont icon-pencil" />&nbsp;Edit
             </n-button>
           </template>
         </template>
-        <n-thing title="介绍">
+        <n-thing title="Description">
           <n-ellipsis class="value" :line-clamp="1" :tooltip="{ width: '400px' }">
-            {{ reposInfo.reposDesc || '这个知识库还没有介绍~' }}
+            {{ reposInfo.reposDesc || 'No description for this knowledge base yet' }}
           </n-ellipsis>
-          <n-input class="input" v-model:value="reposDesc" type="textarea" placeholder="请输入知识库介绍"
+          <n-input class="input" v-model:value="reposDesc" type="textarea" placeholder="Please enter knowledge base description"
           :autosize="{
             minRows: 3,
             maxRows: 5
@@ -74,7 +74,7 @@
         </n-thing>
       </n-list-item>
       <n-list-item class="kb-repos-auth">
-        <n-thing title="配置">
+        <n-thing title="Settings">
           <repository-setting :reposId="reposId" :authEdit="authEdit" />
         </n-thing>
       </n-list-item>
@@ -123,7 +123,7 @@
       const editReposNm = ref(false)
       const onEditReposNm = () => {
         if (isEmpty(reposNm.value)) {
-          message.error('必须输入知识库名称')
+          message.error('Knowledge base name is required')
           return
         }
         if (reposNm.value === reposInfo.reposNm) {
@@ -142,7 +142,7 @@
       const editReposDesc = ref(false)
       const onEditReposDesc = () => {
         if (isEmpty(reposDesc.value)) {
-          message.error('必须输入知识库介绍')
+          message.error('Knowledge base description is required')
           return
         }
         if (reposDesc.value === reposInfo.reposDesc) {

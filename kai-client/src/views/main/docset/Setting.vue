@@ -39,35 +39,35 @@
       <n-list-item :class="editSetNm?'edit':''">
         <template #suffix>
           <n-button v-if="editSetNm" @click="onEditSetNm">
-            <n-icon class="iconfont icon-check" />&nbsp;提交
+            <n-icon class="iconfont icon-check" />&nbsp;Submit
           </n-button>
           <template v-else>
             <n-button v-if="authEdit" @click="editSetNm = !editSetNm">
-              <n-icon class="iconfont icon-pencil" />&nbsp;修改
+              <n-icon class="iconfont icon-pencil" />&nbsp;Edit
             </n-button>
           </template>
         </template>
-        <n-thing title="名称">
+        <n-thing title="Name">
           <div class="value">{{ docsetInfo.setNm }}</div>
-          <n-input class="input" v-model:value="setNm" placeholder="请输入文档集名称"/>
+          <n-input class="input" v-model:value="setNm" placeholder="Please enter document set name"/>
         </n-thing>
       </n-list-item>
       <n-list-item :class="editSetDesc?'edit':''">
         <template #suffix>
           <n-button v-if="editSetDesc" @click="onEditSetDesc">
-            <n-icon class="iconfont icon-check" />&nbsp;提交
+            <n-icon class="iconfont icon-check" />&nbsp;Submit
           </n-button>
           <template v-else>
             <n-button v-if="authEdit" @click="editSetDesc = !editSetDesc">
-              <n-icon class="iconfont icon-pencil" />&nbsp;修改
+              <n-icon class="iconfont icon-pencil" />&nbsp;Edit
             </n-button>
           </template>
         </template>
-        <n-thing title="介绍">
+        <n-thing title="Description">
           <n-ellipsis class="value" :line-clamp="1" :tooltip="{ width: '400px' }">
-            {{ docsetInfo.setDesc || '这个文档集还没有介绍~' }}
+            {{ docsetInfo.setDesc || 'No description for this document set yet' }}
           </n-ellipsis>
-          <n-input class="input" v-model:value="setDesc" type="textarea" placeholder="请输入文档集介绍"
+          <n-input class="input" v-model:value="setDesc" type="textarea" placeholder="Please enter document set description"
           :autosize="{
             minRows: 3,
             maxRows: 5
@@ -114,7 +114,7 @@
       const editSetNm = ref(false)
       const onEditSetNm = () => {
         if (isEmpty(setNm.value)) {
-          message.error('必须输入文档集名称')
+          message.error('Document set name is required')
           return
         }
         if (setNm.value === docsetInfo.setNm) {
@@ -133,7 +133,7 @@
       const editSetDesc = ref(false)
       const onEditSetDesc = () => {
         if (isEmpty(setDesc.value)) {
-          message.error('必须输入文档集介绍')
+          message.error('Document set description is required')
           return
         }
         if (setDesc.value === docsetInfo.setDesc) {

@@ -10,7 +10,7 @@
     require-mark-placement="right-hanging"
   >
     <n-form-item label="" path="mesgCntnt">
-      <n-input v-model:value="formData.mesgCntnt" type="textarea" placeholder="请输入消息内容" 
+      <n-input v-model:value="formData.mesgCntnt" type="textarea" placeholder="Please enter message content" 
         :autosize="{
           minRows: 20,
           maxRows: 20,
@@ -42,7 +42,7 @@ export default defineComponent({
       mesgCntnt: [
         {
           required: true,
-          message: '消息内容必须填写',
+          message: 'Message content is required',
           trigger: [ 'blur' ]
         }
       ]
