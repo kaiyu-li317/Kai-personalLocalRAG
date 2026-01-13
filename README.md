@@ -1,4 +1,4 @@
-# KAI - Personal Local RAG<div align="center"># 📚 KAI - Personal Local RAG<div align="center"><div align="center"><div align="center">
+<div align="center"># 📚 KAI - Personal Local RAG<div align="center"><div align="center"><div align="center">
 
 
 
