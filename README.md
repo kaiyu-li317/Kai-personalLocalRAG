@@ -126,7 +126,7 @@ Large Language Models are great at language, terrible at *your* files. KAI adds 
 
 ├── kai-server/        # FastAPI backend (RAG pipeline, DB, vector store)
 
-├── start.sh           # helper script (optional)## ✨ Features
+├── start.sh           # helper script (optional)## Features
 
 ├── stop.sh            # helper script (optional)
 
@@ -206,7 +206,7 @@ npm run dev- **Semantic Search** - Deep cross-document retrieval based on vector
 
 ### 4) Open the app
 
-- **Conversational Q&A** - Follow-up questions, source citation, multi-turn reasoning## ✨ Features[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
+- **Conversational Q&A** - Follow-up questions, source citation, multi-turn reasoning## Features[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
 
 Open http://localhost:11420
 
@@ -238,7 +238,7 @@ Check the backend/frontend config files in `kai-server/` and `kai-client/` to se
 
 
 
-**Tip**: for best privacy-by-default, start with Ollama + local embeddings first, then add cloud providers only if you truly need them.- **Local LLM** - Integrated with Ollama, supports Qwen, Llama, DeepSeek, Mistral and more### 📖 Smart Knowledge Base Management[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)**Next-Generation Knowledge Management Tool Powered by LLM**# 📚 KAI - Intelligent Personal Knowledge Base is a next-generation knowledge management tool based on large language models (LLMS), integrating AI capabilities to redefine the way knowledge is organized. Supports multi-source knowledge integration, intelligent question answering, automated knowledge processing and visual knowledge networks, helping to build your second brain.
+**Tip**: for best privacy-by-default, start with Ollama + local embeddings first, then add cloud providers only if you truly need them.- **Local LLM** - Integrated with Ollama, supports Qwen, Llama, DeepSeek, Mistral and more### 📖 Smart Knowledge Base Management[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)**Next-Generation Knowledge Management Tool Powered by LLM**# KAI - Intelligent Personal Knowledge Base is a next-generation knowledge management tool based on large language models (LLMS), integrating AI capabilities to redefine the way knowledge is organized. Supports multi-source knowledge integration, intelligent question answering, automated knowledge processing and visual knowledge networks, helping to build your second brain.
 
 
 
@@ -546,7 +546,7 @@ Kai-personalLocalRAG/
 
 ├── start.sh                 # Quick start script
 
-└── stop.sh                  # Stop services script### 🤖 AI Capabilities---
+└── stop.sh                  # Stop services script### AI Capabilities---
 
 ```
 
@@ -578,7 +578,7 @@ Kai-personalLocalRAG/
 
 
 
-Default base URL: `http://127.0.0.1:11434````---## ✨ Features
+Default base URL: `http://127.0.0.1:11434````---## Features
 
 
 
@@ -610,7 +610,7 @@ cd kai-server
 
 - Vite 5.x
 
-- Naive UIsource venv/bin/activate  # On Windows: venv\Scripts\activate### Requirements### 📖 Smart Knowledge Base Management
+- Naive UIsource venv/bin/activate  # On Windows: venv\Scripts\activate### Requirements### Smart Knowledge Base Management
 
 - Tauri 2.0 (Desktop)
 
@@ -648,7 +648,7 @@ npm install| Python | >= 3.11 | Backend runtime |- **AI Auto-processing** - Auto
 
 npm run dev
 
-## 📄 License
+## License
 
 ```| Node.js | >= 18.x | Frontend runtime |
 
@@ -695,7 +695,7 @@ kai-main/
 
 │   ├── src/
 
-│   │   ├── views/       # Page componentscd Kai-personalLocalRAG### 🔍 Intelligent Search & Q&A
+│   │   ├── views/       # Page componentscd Kai-personalLocalRAG### Intelligent Search & Q&A
 
 │   │   ├── components/  # Reusable components
 
@@ -777,7 +777,7 @@ Supported models:### 3. One-Click Start
 
 # Add execute permission
 
-## 🛠️ Development
+## Development
 
 chmod +x start.sh stop.sh
 
@@ -867,7 +867,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 │   │   ├── store/           # State management
 
-│   │   ├── libs/            # Utility librariescd Kai-personalLocalRAG### 🔍 智能搜索与问答│   │   ├── components/    # 通用组件
+│   │   ├── libs/            # Utility librariescd Kai-personalLocalRAG### 智能搜索与问答│   │   ├── components/    # 通用组件
 
 │   │   └── router/          # Route configuration
 
@@ -907,7 +907,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 
 
-## ⚙️ Configurationcurl -fsSL https://ollama.com/install.sh | sh### 🤖 AI 能力├── wenkb-server/          # 后端 (Python FastAPI)
+## Configurationcurl -fsSL https://ollama.com/install.sh | sh### AI 能力├── wenkb-server/          # 后端 (Python FastAPI)
 
 
 
@@ -1043,11 +1043,11 @@ cd kai-client---
 
 
 
-# Install dependencies## 🚀 快速开始
+# Install dependencies## 快速开始
 
 npm install
 
-## 📁 Project Structure
+## Project Structure
 
 # Start development server
 
@@ -1167,47 +1167,19 @@ A: Yes, if Ollama is configured with GPU support, LLM inference will be accelera
 
 
 
-## 🤝 Contributing│
+## License---
 
 
 
-Contributions are welcome! Please feel free to submit a Pull Request.├── start.sh                   # One-click start scriptollama serve# 停止所有服务
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
 
-1. Fork the repository├── stop.sh                    # Stop script
-
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)└── README.mdollama pull qwen2./stop.sh
-
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-
-5. Open a Pull Request```
-
-
-
----```
-
-
-
-## 📄 License---
-
-
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.# 重启服务
-
-
-
----## ⚙️ Configuration
+---## Configuration
 
 
 
 <div align="center">### 3. 一键启动./start.sh restart
-
-
-
-**Built with ❤️ by [kaiyu-li317](https://github.com/kaiyu-li317)**### Backend Configuration
 
 
 
@@ -1504,33 +1476,6 @@ This project is licensed under the [MIT License](LICENSE).## ⚙️ 配置说明
 | `common.py` | 通用配置 (端口、路径等) |
 
 | `datasource.py` | 数据源配置 (数据库连接) |项目内置 `m3e-small` 中文嵌入模型，用于文档向量化和语义搜索。
-
-
-
-### 嵌入模型**M3E 模型特点：**
-
-- 支持中英双语
-
-项目使用 **M3E** 中文嵌入模型，首次启动会自动下载到 `kai-server/resources/model/m3e/`。- 千万级中文句对数据集训练
-
-- 512 维向量输出
-
-| 模型 | 参数量 | 向量维度 | 特点 |- 适用于文本相似度、文本分类等任务
-
-|------|--------|----------|------|
-
-| m3e-small | 24M | 512 | 轻量快速，中文优化 || 模型 | 参数量 | 维度 | 中文 | 英文 |
-
-| m3e-base | 110M | 768 | 精度更高，中英双语 ||------|--------|------|------|------|
-
-| m3e-small | 24M | 512 | ✅ | ❌ |
-
-### LLM 模型| m3e-base | 110M | 768 | ✅ | ✅ |
-
-
-
-推荐使用的 Ollama 模型：---
-
 
 
 ```bash## 📁 配置文件说明
