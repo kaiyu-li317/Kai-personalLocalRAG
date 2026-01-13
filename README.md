@@ -1,150 +1,297 @@
-# Overview# KAI - Personal Local RAG
+# KAI – Personal Local RAG# Overview# KAI - Personal Local RAG
 
 
 
-KAI is a desktop application that enables users to build a personal knowledge base and perform intelligent Q&A over their documents. All data is stored locally, ensuring complete privacy without relying on cloud services.
+KAI is a cross-platform desktop app for building a **personal knowledge base** and doing **grounded Q&A over your own documents**. Everything is stored **locally** for privacy (no forced cloud dependency).
 
 
 
-# Features**Next-Generation Knowledge Management Tool Powered by LLM****Next-Generation Knowledge Management Tool Powered by LLM**
+---KAI is a desktop application that enables users to build a personal knowledge base and perform intelligent Q&A over their documents. All data is stored locally, ensuring complete privacy without relying on cloud services.
 
 
 
-# Knowledge Base Management
+## Why this exists
 
 
+
+Large Language Models are great at language, terrible at *your* files. KAI adds a local "second brain" layer:# Features**Next-Generation Knowledge Management Tool Powered by LLM****Next-Generation Knowledge Management Tool Powered by LLM**
+
+
+
+- Import your docs
+
+- Chunk + index them
+
+- Retrieve relevant passages (vector search)# Knowledge Base Management
+
+- Answer questions with **citations back to the source text**
+
+
+
+---
 
 - **Multi-format Document Support**: Import PDF, Word, Markdown, plain text, and web links[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 
+## Features
+
 - **Automatic Document Processing**: Intelligent text segmentation, metadata extraction, and indexing
 
-- **Document Organization**: Hierarchical folder structure, tagging, and batch operations[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
+### Knowledge base management
 
-- **Version Control**: Track document changes and maintain revision history
+- **Multi-format import**: PDF, Word, Markdown, plain text, and web links- **Document Organization**: Hierarchical folder structure, tagging, and batch operations[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org) KAI - Personal Local RAG
+- Automatic processing: segmentation / metadata extraction / indexing
 
-# Intelligent Search and Q&A
+- Organization tools: folders, tags, batch ops (plus revision/history)- **Version Control**: Track document changes and maintain revision history
 
-[![Tauri](https://img.shields.io/badge/Tauri-2.0-orange.svg)](https://tauri.app)
 
-- **Semantic Search**: Vector-based retrieval that understands context and meaning, not just keywords
 
-- **Conversational Q&A**: Multi-turn dialogue with context awareness and follow-up question support[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
+### Search & Q&A[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org) KAI - Personal Local RAG
+
+- Semantic (vector) search — meaning-based retrieval, not just keywords
+
+- Multi-turn conversational Q&A with context# Intelligent Search and Q&A
+
+- Source citation in answers
+
+- Cross-document retrieval & synthesis[![Tauri](https://img.shields.io/badge/Tauri-2.0-orange.svg)](https://tauri.app)
+
+
+
+### AI / model support- **Semantic Search**: Vector-based retrieval that understands context and meaning, not just keywords
+
+- Local LLM support via **Ollama** for offline workflows
+
+- Multiple providers supported (e.g., OpenAI / DeepSeek / Moonshot / Tongyi Qianwen / Zhipu AI)- **Conversational Q&A**: Multi-turn dialogue with context awareness and follow-up question support[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
+
+- Built-in embedding model (**M3E**) for semantic indexing
 
 - **Source Citation**: All answers include references to original document sources
 
-- **Cross-document Retrieval**: Search and synthesize information across multiple documents
+### Desktop app
+
+- Built with **Tauri 2.0** (Windows / macOS / Linux)- **Cross-document Retrieval**: Search and synthesize information across multiple documents
+
+- Lightweight, "native-feeling", and can run offline (with local models)
 
 
+
+---
 
 ### AI Integration[Features](#-features) • [Quick Start](#-quick-start) • [Project Structure](#-project-structure) • [Configuration](#-configuration) • [Development](#-development)[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)
 
+## Tech Stack
 
 
-- **Local LLM Support**: Integration with Ollama for fully offline operation
 
-- **Multiple Model Providers**: Support for OpenAI, DeepSeek, Moonshot, Tongyi Qianwen, and Zhipu AI
+**Frontend**
+
+- Vue 3 (Composition API)- **Local LLM Support**: Integration with Ollama for fully offline operation
+
+- Vite
+
+- Naive UI- **Multiple Model Providers**: Support for OpenAI, DeepSeek, Moonshot, Tongyi Qianwen, and Zhipu AI
+
+- Tauri 2.0
 
 - **Embedded Models**: Built-in M3E embedding model for semantic understanding</div>[![Tauri](https://img.shields.io/badge/Tauri-2.0-orange.svg)](https://tauri.app)
 
-- **Flexible Configuration**: Easy switching between different models and providers
+**Backend**
+
+- Python 3.11+- **Flexible Configuration**: Easy switching between different models and providers
+
+- FastAPI
+
+- SQLAlchemy
+
+- LangChain
+
+- ChromaDB### Desktop Application
 
 
 
-### Desktop Application
-
----[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)**Next-Generation Knowledge Management Tool Powered by LLM**# 📚 KAI - Personal Local RAG
-
-- **Cross-platform**: Built with Tauri 2.0 for Windows, macOS, and Linux
-
-- **Native Performance**: Lightweight and fast with minimal resource usage
-
-- **Offline Capable**: Full functionality without internet connection when using local models
-
-## ✨ Features
-
-## Technical Architecture
+------[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)**Next-Generation Knowledge Management Tool Powered by LLM**# 📚 KAI - Personal Local RAG
 
 
+
+## Project Structure- **Cross-platform**: Built with Tauri 2.0 for Windows, macOS, and Linux
+
+
+
+```txt- **Native Performance**: Lightweight and fast with minimal resource usage
+
+.
+
+├── kai-client/        # Vue + Vite + NaiveUI frontend (Tauri shell)- **Offline Capable**: Full functionality without internet connection when using local models
+
+├── kai-server/        # FastAPI backend (RAG pipeline, DB, vector store)
+
+├── start.sh           # helper script (optional)## ✨ Features
+
+├── stop.sh            # helper script (optional)
+
+└── LICENSE## Technical Architecture
+
+```
+
+
+
+---
 
 ### Frontend
 
+## Quick Start (Dev)
+
 ### 📖 Smart Knowledge Base Management[Features](#-features) • [Quick Start](#-quick-start) • [Project Structure](#-project-structure) • [Configuration](#-configuration) • [Development](#-development)
-
-- Vue 3 with Composition API
-
-- Vite 5.x for development and building- **Multi-format Import** - Support PDF, Word, Markdown, web links, plain text and more
-
-- Naive UI component library
-
-- Tauri 2.0 for desktop packaging- **AI Auto-processing** - Automatic segmentation, summary generation, Q&A pair creation, knowledge extraction
-
-
-
-### Backend- **Document Management** - Version control, knowledge linking, batch operations
-
-
-
-- Python 3.11+ with FastAPI- **Dual-mode Editor** - Markdown + Rich text hybrid editing---[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
-
-- SQLAlchemy for database management
-
-- LangChain for LLM orchestration
-
-- ChromaDB for vector storage
-
-### 🔍 Intelligent Search & Q&A
-
-## Installation
-
-- **Semantic Search** - Deep cross-document retrieval based on vector database
 
 ### Prerequisites
 
-- **Conversational Q&A** - Follow-up questions, source citation, multi-turn reasoning## ✨ Features[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
+- Python 3.11+- Vue 3 with Composition API
 
-- Python 3.11 or higher
+- Node.js 18+
 
-- Node.js 18.x or higher- **Local Deployment** - Fully local data storage, privacy protection
-
-- Ollama (optional, for local LLM)
+- (Optional) Ollama installed & running for local inference- Vite 5.x for development and building- **Multi-format Import** - Support PDF, Word, Markdown, web links, plain text and more
 
 
 
-### Setup
+### 1) Clone- Naive UI component library
 
-# AI Capabilities
 
-1. Clone the repository:
 
-- **Local LLM** - Integrated with Ollama, supports Qwen, Llama, DeepSeek, Mistral and more### 📖 Smart Knowledge Base Management[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)**Next-Generation Knowledge Management Tool Powered by LLM**# 📚 KAI - Intelligent Personal Knowledge Base is a next-generation knowledge management tool based on large language models (LLMS), integrating AI capabilities to redefine the way knowledge is organized. Supports multi-source knowledge integration, intelligent question answering, automated knowledge processing and visual knowledge networks, helping to build your second brain.
+```bash- Tauri 2.0 for desktop packaging- **AI Auto-processing** - Automatic segmentation, summary generation, Q&A pair creation, knowledge extraction
 
-```bash
-
-git clone https://github.com/kaiyu-li317/Kai-personalLocalRAG.git- **Embedding Model** - Built-in M3E embedding model for semantic understanding
+git clone https://github.com/kaiyu-li317/Kai-personalLocalRAG.git
 
 cd Kai-personalLocalRAG
 
-```- **Multiple Providers** - Support for OpenAI, DeepSeek, Moonshot, Tongyi, Zhipu AI- **Multi-format Import** - Support PDF, Word, Markdown, web links, plain text and more
+```
+
+### Backend- **Document Management** - Version control, knowledge linking, batch operations
+
+### 2) Start backend
 
 
 
-2. Start the backend server:
+```bash
 
-
-
-```bash---- **AI Auto-processing** - Automatic segmentation, summary generation, Q&A pair creation, knowledge extraction[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-cd kai-server
+cd kai-server- Python 3.11+ with FastAPI- **Dual-mode Editor** - Markdown + Rich text hybrid editing---[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 
 python -m venv venv
 
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate   # Windows: venv\Scripts\activate- SQLAlchemy for database management
 
-pip install -r requirements.txt## Quick Start- **Document Management** - Version control, knowledge linking, batch operations
+pip install -r requirements.txt
 
-python app.py
+python app.py- LangChain for LLM orchestration
+
+```
+
+- ChromaDB for vector storage
+
+### 3) Start frontend
+
+### 🔍 Intelligent Search & Q&A
+
+```bash
+
+cd ../kai-client## Installation
+
+npm install
+
+npm run dev- **Semantic Search** - Deep cross-document retrieval based on vector database
+
+```
+
+### Prerequisites
+
+### 4) Open the app
+
+- **Conversational Q&A** - Follow-up questions, source citation, multi-turn reasoning## ✨ Features[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
+
+Open http://localhost:11420
+
+- Python 3.11 or higher
+
+---
+
+- Node.js 18.x or higher- **Local Deployment** - Fully local data storage, privacy protection
+
+## Configuration
+
+- Ollama (optional, for local LLM)
+
+KAI is designed to support both:
+
+- Local models (Ollama)
+
+- Hosted APIs (multiple providers)
+
+### Setup
+
+Check the backend/frontend config files in `kai-server/` and `kai-client/` to set:
+
+- model provider# AI Capabilities
+
+- API keys (if using hosted models)
+
+- embedding / vector store options1. Clone the repository:
+
+
+
+**Tip**: for best privacy-by-default, start with Ollama + local embeddings first, then add cloud providers only if you truly need them.- **Local LLM** - Integrated with Ollama, supports Qwen, Llama, DeepSeek, Mistral and more### 📖 Smart Knowledge Base Management[![FastAPI](https://img.shields.io/badge/FastAPI-0.112-009688.svg)](https://fastapi.tiangolo.com)**Next-Generation Knowledge Management Tool Powered by LLM**# 📚 KAI - Intelligent Personal Knowledge Base is a next-generation knowledge management tool based on large language models (LLMS), integrating AI capabilities to redefine the way knowledge is organized. Supports multi-source knowledge integration, intelligent question answering, automated knowledge processing and visual knowledge networks, helping to build your second brain.
+
+
+
+---```bash
+
+
+
+## How RAG works here (high level)git clone https://github.com/kaiyu-li317/Kai-personalLocalRAG.git- **Embedding Model** - Built-in M3E embedding model for semantic understanding
+
+
+
+1. **Ingestion**: documents are parsed and chunkedcd Kai-personalLocalRAG
+
+2. **Embedding**: chunks → vectors (M3E / provider embeddings)
+
+3. **Storage**: vectors saved in ChromaDB```- **Multiple Providers** - Support for OpenAI, DeepSeek, Moonshot, Tongyi, Zhipu AI- **Multi-format Import** - Support PDF, Word, Markdown, web links, plain text and more
+
+4. **Retrieval**: query → nearest chunks
+
+5. **Generation**: LLM answers with retrieved context + citations
+
+
+
+---2. Start the backend server:
+
+
+
+## Roadmap (suggested)
+
+
+
+- Better onboarding + first-run wizard (model/provider setup)```bash---- **AI Auto-processing** - Automatic segmentation, summary generation, Q&A pair creation, knowledge extraction[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+- Background ingestion queue + progress UI
+
+- Export / import knowledge basecd kai-server
+
+- Knowledge graph / visual linking
+
+- Packaging + release builds (GitHub Actions)python -m venv venv
+
+
+
+---source venv/bin/activate  # Windows: venv\Scripts\activate
+
+
+
+## Licensepip install -r requirements.txt## Quick Start- **Document Management** - Version control, knowledge linking, batch operations
+
+
+
+MIT License.python app.py
+
 
 ```
 
